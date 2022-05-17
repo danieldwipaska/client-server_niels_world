@@ -8,10 +8,16 @@
       </div>
       <div class="col-md-4 my-5">
         <br /><br /><br /><br />
-        <h1 class="display-4">Daniel D. Kamasi</h1>
-        <p class="fs-3">Student | Programmer | Artist</p>
+        <div class="landing-head">
+          <h1 class="display-4">Daniel D. Kamasi</h1>
+        </div>
+        <div class="landing-desc">
+          <p class="fs-3">Student | Programmer | Artist</p>
+        </div>
         <br />
-        <a href="/about" class="btn btn-outline-dark" role="button" aria-pressed="true">My Portfolio</a>
+        <div class="jumbotron-button">
+          <a href="/about" class="btn btn-outline-dark porto-button" role="button" aria-pressed="true">My Portfolio</a>
+        </div>
       </div>
       <div class="col-md-2"></div>
     </div>
@@ -19,12 +25,14 @@
 </section>
 <section id="feeds">
   <div class="container py-5">
-    <h1 class="display-6">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-      </svg>
-      Latest Feeds
-    </h1>
+    <div class="section-part">
+      <h1 class="display-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+        </svg>
+        Latest Feeds
+      </h1>
+    </div>
     <br />
     <div class="row latest-feeds">
       <% post.forEach((e) => { %>
@@ -162,4 +170,8 @@
   link.setAttribute('rel', 'stylesheet');
   link.setAttribute('href', '../../public/css/style.css');
   head.appendChild(link);
+  const link2 = document.createElement('link');
+  link2.setAttribute('rel', 'stylesheet');
+  link2.setAttribute('href', '../../public/css/index_style.css');
+  head.appendChild(link2);
 </script>

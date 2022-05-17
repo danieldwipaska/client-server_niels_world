@@ -1,0 +1,45 @@
+.landing-head {
+  overflow: hidden;
+}
+.landing-desc {
+  overflow: hidden;
+}
+.landing-desc p {
+  transform: translateY(300px);
+  animation: slideUp 0.8s ease-in-out forwards 0.8s;
+}
+.landing-head h1 {
+  transform: translateY(100px);
+  animation: slideUp 0.8s ease forwards 0.5s;
+}
+.jumbotron-button {
+  overflow: hidden;
+}
+.porto-button {
+  transform: translateY(50px);
+  animation: slideUp 0.8s ease-in-out forwards 1s;
+}
+.section-part {
+  overflow: hidden;
+}
+.section-part h1 {
+  transform: translateY(200px);
+  animation: slideUp 0.8s ease-in-out forwards 1.3s;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(300px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.latest-feeds .card {
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.latest-feeds .card:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,7 @@
+.navi-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.navi-button:hover {
+  transform: scale(1.1);
+}
