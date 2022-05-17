@@ -1,0 +1,165 @@
+<section id="jumbotron" class="my-5">
+  <div class="container">
+    <br /><br />
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <img src="../public/img/landing_page.jpg" alt="landing_page" width="400px" />
+      </div>
+      <div class="col-md-4 my-5">
+        <br /><br /><br /><br />
+        <h1 class="display-4">Daniel D. Kamasi</h1>
+        <p class="fs-3">Researcher | Programmer | Artist</p>
+        <br />
+        <a href="/about" class="btn btn-outline-dark" role="button" aria-pressed="true">My Portfolio</a>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</section>
+<section id="feeds">
+  <div class="container py-5">
+    <h1 class="display-6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+      </svg>
+      Latest Feeds
+    </h1>
+    <br />
+    <div class="row latest-feeds">
+      <% post.forEach((e) => { %>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= e.title %></h5>
+              <p><small><%= e.dateCreated.toLocaleDateString() %></small></p>
+              <p class="card-text"><%= e.desc %></p>
+              <a href="/feeds/<%= e.slug %>" class="btn btn-outline-dark">Read more</a>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+    </div>
+    <br /><br />
+  </div>
+</section>
+<section id="services" style="display: none;">
+  <div class="container py-5">
+    <h1 class="display-6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+      </svg>
+      Services
+    </h1>
+    <br />
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card text-dark bg-light">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card text-dark bg-light">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="information" style="display: none;">
+  <div class="container py-5">
+    <h1 class="display-6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+      </svg>
+      Information
+    </h1>
+    <br>
+    <div class="card-group">
+      <div class="card">
+        <img src="../public/img/economics.png" class="card-img-top" alt="environment logo">
+        <div class="card-body">
+          <h5 class="card-title">Economics</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.\</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../public/img/tech.png" class="card-img-top" alt="technology logo">
+        <div class="card-body">
+          <h5 class="card-title">Technology</h5>
+          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../public/img/envi.png" class="card-img-top" alt="environment logo">
+        <div class="card-body">
+          <h5 class="card-title">Environment</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+  </div>
+</section>
+<section id="knowledge" style="display: none;">
+  <div class="container py-5">
+    <h1 class="display-6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+      </svg>
+      Knowledge
+    </h1>
+    <br>
+    <div class="card-group m-auto">
+      <div class="card">
+        <img src="../public/img/physics_books.png" class="card-img-top" alt="environment logo" />
+        <div class="card-body">
+          <h5 class="card-title">Physics</h5>
+          <p class="card-text">Fisika membahas tentang hukum-hukum alam yang berlaku di alam semesta. Masalah yang berkaitan dengan fenomena-fenomena lingkungan dapat dipecahkan dengan pendekatan Fisika.</p>
+          <p class="card-text"><small class="text-muted">Kuliah Fisika</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../public/img/electronics_logo.png" class="card-img-top" alt="technology logo" />
+        <div class="card-body">
+          <h5 class="card-title">Electronics</h5>
+          <p class="card-text">Elektronika membahas tentang segala peristiwa kelistrikan. Ilmu elektronika mampu menyelesaikan permasalahan kelistrikan sekaligus membuat inovasi yang kreatif.</p>
+          <p class="card-text"><small class="text-muted">Kuliah Elektronika</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../public/img/www_logo.png" class="card-img-top" alt="environment logo" />
+        <div class="card-body">
+          <h5 class="card-title">Web Development</h5>
+          <p class="card-text">Internet telah menjadi sarana kita dalam bertukar informasi. Kemampuan internet dalam menjangkau orang-orang di seluruh dunia memicu pengembangan web yang inovatif.</p>
+          <p class="card-text"><small class="text-muted">Kuliah Pengembangan Web</small></p>
+        </div>
+      </div>
+    </div>
+</section>
+<section id="entertainment" style="display: none;">
+  <div class="container py-5">
+    <h1 class="display-6">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+      </svg>
+      Entertainment
+    </h1>
+  </div>
+</section>
+<script>
+  const head = document.querySelector('head');
+  const link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', '../../public/css/style.css');
+  head.appendChild(link);
+</script>

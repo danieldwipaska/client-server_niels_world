@@ -1,0 +1,48 @@
+<section class="py-5">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-10">
+        <h1 class="text-center">Posts</h1>
+        <div class="post-here">
+          <% post.forEach( (e) => { %>
+
+          <a href="/feeds/<%= e.slug %>"
+            ><div class="card my-3 mx-auto post-cards">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="http://localhost:3000/<%= e.img %>" class="img-fluid rounded-start" alt="..." id="post-image" />
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= e.title %></h5>
+                    <p class="card-text"><%= e.desc %></p>
+                    <p class="card-text timestamps"><small class="text-muted"><%= e.dateCreated.toLocaleDateString() %></small></p>
+                    <p class="card-text">Kategori: <%= e.categories %></p>
+                  </div>
+                </div>
+              </div>
+            </div></a
+          >
+
+          <% }) %>
+        </div>
+      </div>
+      <div class="col-2">
+        <h1 class="text-center">Categories</h1>
+        <div class="list-group category-here">
+          <% cat.forEach((e) => { %>
+          <a href="/feeds?category=<%= e.slug %>" class="list-group-item list-group-item-action"><%= e.name %></a>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const head = document.querySelector('head');
+  const link = document.createElement('link');
+  link.setAttribute('rel', 'stylesheet');
+  link.setAttribute('href', '../public/css/feeds_style.css');
+  head.appendChild(link);
+</script>

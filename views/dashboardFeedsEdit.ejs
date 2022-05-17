@@ -1,0 +1,37 @@
+<div class="container my-5 py-5">
+  <form id="form" action="/api/posts/<%= post._id %>" enctype="multipart/form-data" method="post">
+    <div class="mb-3">
+      <label for="userId" class="form-label">User ID</label>
+      <input type="text" class="form-control" name="userId" id="userId" value="<%= post.userId %>" />
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" name="title" id="title" value="<%= post.title %>" />
+    </div>
+    <div class="mb-3">
+      <label for="desc" class="form-label">Description</label>
+      <textarea class="form-control" name="desc" placeholder="Your content here" id="desc"><%= post.desc %></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="markdown" class="form-label">Content</label>
+      <textarea class="form-control" name="markdown" placeholder="Your content here" id="markdown" style="height: 300px"><%= post.markdown %></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="files" class="form-label">Overwrite Image <small class="text-muted">375x200px</small></label>
+      <input type="file" class="form-control" id="files" name="files" />
+    </div>
+    <p>Categories</p>
+    <div class="category-here">
+      <% cat.forEach((e) => { %>
+      <div class="mb-3 form-check">
+        <input class="form-check-input" type="checkbox" name="categories" value="<%= e.name %>" id="<%= e.name %>" />
+        <label class="form-check-label" for="<%= e.name %>"><%= e.name %></label>
+      </div>
+
+      <% }); %>
+    </div>
+    <p class="text-muted">Current Categories: <%= post.categories %></p>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <!-- <a href="/dashboard/feeds"><button type="button" class="btn btn-outline-dark">Cancel</button></a> -->
+  </form>
+</div>
