@@ -11,7 +11,7 @@
   dateHere.innerHTML = date.toLocaleDateString();
 
   const img = document.querySelector('img');
-  // img.setAttribute('src', 'https://niel-personal-website.herokuapp.com/');
+  img.setAttribute('src', 'https://niel-personal-website.herokuapp.com/<%= post.img %>');
   img.style.maxWidth = '600px';
   img.classList.add('centered-image');
 </script>
