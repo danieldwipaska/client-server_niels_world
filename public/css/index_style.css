@@ -9,7 +9,7 @@
   animation: slideUp 0.8s ease-in-out forwards 0.8s;
 }
 .landing-head h1 {
-  transform: translateY(100px);
+  transform: translateY(200px);
   animation: slideUp 0.8s ease forwards 0.5s;
 }
 .jumbotron-button {
