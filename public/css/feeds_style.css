@@ -3,6 +3,7 @@ a {
   text-decoration: none;
 }
 
-#post-image {
-  max-height: 200px;
+.post-here .post-image {
+  max-height: 100%;
+  max-width: 100%;
 }
