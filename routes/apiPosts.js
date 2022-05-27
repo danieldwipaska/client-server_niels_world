@@ -55,10 +55,10 @@ router.post('/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.userId === req.body.userId) {
+      req.body.slug = slugify(req.body.title, { lower: true, strict: true });
+      req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
       const updatePost = new Post(req.body);
       try {
-        // req.body.slug = slugify(req.body.title, { lower: true, strict: true });
-        // req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
         saveCover(updatePost, req.body.files);
         const updatedPost = await Post.findByIdAndUpdate(
           req.params.id,
