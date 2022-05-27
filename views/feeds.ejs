@@ -4,6 +4,7 @@
       <div class="col-lg-2">
         <p class="text-center fs-2">Categories</p>
         <div class="list-group category-here">
+          <a href="/feeds" class="list-group-item list-group-item-action">Semua Kategori</a>
           <% cat.forEach((e) => { %>
           <a href="/feeds?category=<%= e.slug %>" class="list-group-item list-group-item-action"><%= e.name %></a>
           <% }); %>
