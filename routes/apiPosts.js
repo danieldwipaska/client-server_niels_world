@@ -1,38 +1,39 @@
 const router = require('express').Router();
 const Post = require('../models/Post');
 const User = require('../models/User');
-const multer = require('multer');
 const marked = require('marked');
 const slugify = require('slugify');
 const createDomPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
 const dompurify = createDomPurify(new JSDOM().window);
+const imageMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 
-//Configuration for Multer
-const multerStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public');
-  },
-  filename: (req, file, cb) => {
-    const ext = file.mimetype.split('/')[1];
-    cb(null, `img/admin-${file.fieldname}-${Date.now()}.${ext}`);
-  },
-});
+// //Configuration for Multer
+// const multerStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'public');
+//   },
+//   filename: (req, file, cb) => {
+//     const ext = file.mimetype.split('/')[1];
+//     cb(null, `img/admin-${file.fieldname}-${Date.now()}.${ext}`);
+//   },
+// });
 
-//Calling the "multer" Function
-const upload = multer({
-  storage: multerStorage,
-});
+// //Calling the "multer" Function
+// const upload = multer({
+//   storage: multerStorage,
+// });
 
 //CREATE A POST
-router.post('/', upload.single('files'), async (req, res) => {
+router.post('/', async (req, res) => {
   // console.log(req.body);
   // res.redirect('/dashboard/feeds');
   try {
     const user = await User.findById(req.body.userId);
     if (user.isAdmin) {
-      const newPost = new Post(req.body);
-      newPost.img = req.file.filename;
+      const newPost = new Post(req.body); // tidak ada newPost.files
+      // newPost.img = req.file.filename;
+      saveCover(newPost, req.body.files);
       try {
         const savedPost = await newPost.save();
         // res.json(savedPost);
@@ -50,23 +51,26 @@ router.post('/', upload.single('files'), async (req, res) => {
 
 //UPDATE A POST
 // it should be a PUT
-router.post('/:id', upload.single('files'), async (req, res) => {
+router.post('/:id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.userId === req.body.userId) {
+      const updatePost = new Post(req.body);
       try {
-        req.body.slug = slugify(req.body.title, { lower: true, strict: true });
-        req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
+        // req.body.slug = slugify(req.body.title, { lower: true, strict: true });
+        // req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
+        saveCover(updatePost, req.body.files);
         const updatedPost = await Post.findByIdAndUpdate(
           req.params.id,
           {
-            title: req.body.title,
-            desc: req.body.desc,
-            markdown: req.body.markdown,
-            categories: req.body.categories,
-            slug: req.body.slug,
-            sanitizeHtml: req.body.sanitizeHtml,
-            img: req.file.filename,
+            title: updatePost.title,
+            desc: updatePost.desc,
+            markdown: updatePost.markdown,
+            categories: updatePost.categories,
+            slug: updatePost.slug,
+            sanitizeHtml: updatePost.sanitizeHtml,
+            img: updatePost.img,
+            imgType: updatePost.imgType,
           },
           { new: true }
         );
@@ -130,5 +134,14 @@ router.get('/posts', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+function saveCover(image, imageEncoded) {
+  if (imageEncoded == null) return;
+  const cover = JSON.parse(imageEncoded);
+  if (cover != null && imageMimeTypes.includes(cover.type)) {
+    image.img = new Buffer.from(cover.data, 'base64');
+    image.imgType = cover.type;
+  }
+}
 
 module.exports = router;

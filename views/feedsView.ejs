@@ -12,7 +12,7 @@
   dateHere.innerHTML = date.toLocaleDateString();
 
   const img = document.querySelector('img');
-  img.setAttribute('src', 'https://niel-personal-website.herokuapp.com/<%= post.img %>');
+  img.setAttribute('src', '<%= post.imgPath %>');
   img.style.width = '100%';
   img.classList.add('centered-image');
 </script>

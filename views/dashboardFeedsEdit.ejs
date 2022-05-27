@@ -1,5 +1,5 @@
 <div class="container my-5 py-5">
-  <form id="form" action="/api/posts/<%= post._id %>" enctype="multipart/form-data" method="post">
+  <form id="form" action="/api/posts/<%= post._id %>" method="post">
     <div class="mb-3">
       <label for="userId" class="form-label">User ID</label>
       <input type="text" class="form-control" name="userId" id="userId" value="<%= post.userId %>" />
@@ -18,7 +18,7 @@
     </div>
     <div class="mb-3">
       <label for="files" class="form-label">Overwrite Image <small class="text-muted">375x200px</small></label>
-      <input type="file" class="form-control" id="files" name="files" />
+      <input type="file" class="form-control filepond" id="files" name="files" />
     </div>
     <p>Categories</p>
     <div class="category-here">

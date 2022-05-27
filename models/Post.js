@@ -23,6 +23,10 @@ const PostSchema = new mongoose.Schema(
       max: 500,
     },
     img: {
+      type: Buffer,
+      default: '',
+    },
+    imgType: {
       type: String,
       default: '',
     },
@@ -56,6 +60,12 @@ PostSchema.pre('validate', function (next) {
     this.sanitizeHtml = dompurify.sanitize(marked.parse(this.markdown));
   }
   next();
+});
+
+PostSchema.virtual('imgPath').get(function () {
+  if (this.img != null && this.imgType != null) {
+    return `data:${this.imgType};charset=utf-8;base64,${this.img.toString('base64')}`;
+  }
 });
 
 module.exports = mongoose.model('Post', PostSchema);

@@ -20,9 +20,9 @@ const categoryRoute = require('./routes/apiCategories');
 
 // middlewares
 app.use(expressLayouts);
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ limit: '10mb', extended: false }));
 app.use(cookieParser());
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(`${__dirname}/public`)); // make files able to access
