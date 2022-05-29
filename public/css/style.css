@@ -1,3 +1,6 @@
+section:last-child {
+  background-color: gainsboro;
+}
 .timeline ul li {
   list-style-type: none;
   position: relative;
