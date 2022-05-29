@@ -317,7 +317,7 @@ section:nth-child(odd) {
 }
 /* Github */
 .fa-github {
-  background: black;
+  background: rgb(63, 63, 63);
   color: white;
 }
 
