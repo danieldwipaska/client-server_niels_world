@@ -315,6 +315,11 @@ section:nth-child(odd) {
   background: rgb(212, 95, 16);
   color: white;
 }
+/* Github */
+.fa-github {
+  background: black;
+  color: white;
+}
 
 .post-cards {
   max-width: 1280px;
