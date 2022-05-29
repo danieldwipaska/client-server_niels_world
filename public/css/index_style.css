@@ -1,3 +1,6 @@
+section:nth-child(odd) {
+  background-color: gainsboro;
+}
 .landing-head {
   overflow: hidden;
 }
