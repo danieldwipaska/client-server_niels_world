@@ -315,6 +315,16 @@ section:nth-child(odd) {
   background: rgb(212, 95, 16);
   color: white;
 }
+/* LinkedIn */
+.fa-linkedin {
+  background: rgb(212, 95, 16);
+  color: white;
+}
+/* Skype */
+.fa-skype {
+  background: rgb(212, 95, 16);
+  color: white;
+}
 /* Github */
 .fa-github {
   background: rgb(63, 63, 63);
