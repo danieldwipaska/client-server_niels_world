@@ -1,15 +1,15 @@
 function researchBarChart() {
-  const labels = ['Fisika/Matematika', 'Elektronika'];
+  const labels = ['NodeJS', 'ExpressJS', 'Redis', 'EJS', 'Bootstrap', 'PostgreSQL', 'MongoDB'];
   const data = {
     labels: labels,
     datasets: [
       {
         axis: 'y',
-        label: 'Research Skill',
-        data: [90, 70],
+        label: 'Framework Skill',
+        data: [90, 88, 30, 50, 80, 40, 75],
         fill: false,
-        backgroundColor: ['rgba(255, 99, 132, 0.6)', 'rgba(255, 99, 132, 0.6)'],
-        borderColor: ['rgb(255, 99, 132)', 'rgb(255, 99, 132)'],
+        backgroundColor: ['rgba(255, 95, 110, 0.6)', 'rgba(255, 95, 110, 0.6)', 'rgba(255, 95, 110, 0.6)', 'rgba(255, 95, 110, 0.6)', 'rgba(255, 95, 110, 0.6)'],
+        borderColor: ['rgb(255, 95, 110)', 'rgb(255, 95, 110)', 'rgb(255, 95, 110)', 'rgb(255, 95, 110)', 'rgb(255, 95, 110)'],
         borderWidth: 1,
       },
     ],
@@ -35,7 +35,7 @@ function researchBarChart() {
 }
 
 function programmingBarChart() {
-  const labels = ['Javascript/NodeJS', 'Matlab', 'Arduino'];
+  const labels = ['Javascript', 'Matlab', 'Embedded System'];
   const data = {
     labels: labels,
     datasets: [
@@ -44,8 +44,8 @@ function programmingBarChart() {
         label: 'Programming Skill',
         data: [85, 45, 55],
         fill: false,
-        backgroundColor: ['rgba(255, 159, 64, 0.6)', 'rgba(255, 159, 64, 0.6)', 'rgba(255, 159, 64, 0.6)'],
-        borderColor: ['rgb(255, 159, 64)', 'rgb(255, 159, 64)', 'rgb(255, 159, 64)'],
+        backgroundColor: ['rgba(255, 159, 80, 0.6)', 'rgba(255, 159, 80, 0.6)', 'rgba(255, 159, 80, 0.6)'],
+        borderColor: ['rgb(255, 159, 80)', 'rgb(255, 159, 80)', 'rgb(255, 159, 64)'],
         borderWidth: 1,
       },
     ],
