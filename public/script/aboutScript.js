@@ -1,75 +1,3 @@
-function researchBarChart() {
-  const labels = ['NodeJS', 'ExpressJS', 'Redis', 'EJS', 'Bootstrap', 'PostgreSQL', 'MongoDB'];
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        axis: 'y',
-        label: 'Framework Skill',
-        data: [90, 88, 30, 50, 80, 40, 75],
-        fill: false,
-        backgroundColor: ['rgba(188, 102, 71, 0.6)', 'rgba(188, 102, 71, 0.6)', 'rgba(188, 102, 71, 0.6)', 'rgba(188, 102, 71, 0.6)', 'rgba(188, 102, 71, 0.6)'],
-        borderColor: ['rgb(188, 102, 71)', 'rgb(188, 102, 71)', 'rgb(188, 102, 71)', 'rgb(188, 102, 71)', 'rgb(188, 102, 71)'],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  // CONFIG
-  const config = {
-    type: 'bar',
-    data,
-    options: {
-      indexAxis: 'y',
-      scales: {
-        x: {
-          min: 0,
-          max: 100,
-        },
-      },
-    },
-  };
-
-  // RENDER
-  const myChart2 = new Chart(document.getElementById('myChart2'), config);
-}
-
-function programmingBarChart() {
-  const labels = ['Javascript', 'Matlab', 'Embedded System'];
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        axis: 'y',
-        label: 'Programming Skill',
-        data: [85, 45, 55],
-        fill: false,
-        backgroundColor: ['rgba(93, 109, 136, 0.6)', 'rgba(93, 109, 136, 0.6)', 'rgba(93, 109, 136, 0.6)'],
-        borderColor: ['rgb(93, 109, 136)', 'rgb(93, 109, 136)', 'rgb(93, 109, 136)'],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  // CONFIG
-  const config = {
-    type: 'bar',
-    data,
-    options: {
-      indexAxis: 'y',
-      scales: {
-        x: {
-          min: 0,
-          max: 100,
-        },
-      },
-    },
-  };
-
-  // RENDER
-  const myChart3 = new Chart(document.getElementById('myChart3'), config);
-}
-
 function langskillBarChart() {
   const labels = ['Bahasa Indonesia', 'English'];
   const data = {
@@ -115,6 +43,4 @@ function langskillBarChart() {
   const myChart1 = new Chart(document.getElementById('myChart1'), config);
 }
 
-researchBarChart();
-programmingBarChart();
 langskillBarChart();
