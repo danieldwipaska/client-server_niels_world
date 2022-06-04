@@ -1,3 +1,8 @@
+.technical-box {
+  background-color: rgb(49, 147, 226);
+  border-radius: 5px;
+}
+
 .timeline ul li {
   list-style-type: none;
   position: relative;
