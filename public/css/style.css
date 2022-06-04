@@ -1,5 +1,6 @@
 .technical-box {
-  border-radius: 10px;
+  background-color: rgb(183, 214, 255);
+  border-radius: 20px;
 }
 
 .timeline ul li {
