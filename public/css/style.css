@@ -1,5 +1,9 @@
-.technical-box {
-  background-color: rgb(255, 159, 64);
+.framework-box {
+  background-color: rgba(255, 159, 64, 0.6);
+  border-radius: 20px;
+}
+.proglang-box {
+  background-color: rgba(255, 99, 132, 0.6);
   border-radius: 20px;
 }
 
