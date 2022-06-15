@@ -1,3 +1,10 @@
+.framework-box {
+  border-radius: 20px;
+}
+.proglang-box {
+  border-radius: 20px;
+}
+
 .timeline ul li {
   list-style-type: none;
   position: relative;
