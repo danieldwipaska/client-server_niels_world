@@ -1,5 +1,5 @@
 body {
-  background-image: url(https://niel-personal-website.herokuapp.com/public/img/Reddy1366x1400px.png);
+  background-image: url(https://niel-personal-website.herokuapp.com/public/img/Nick1920x1920px.png);
   background-size: cover;
 }
 /* section:nth-child(3) {
@@ -17,6 +17,7 @@ body {
 }
 .landing-head h1 {
   transform: translateY(200px);
+  background-position: center;
   animation: slideUp 0.8s ease forwards 0.5s;
 }
 .jumbotron-button {
