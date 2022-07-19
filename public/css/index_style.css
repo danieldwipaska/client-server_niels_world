@@ -1,5 +1,7 @@
 body {
   background-image: url(https://niel-personal-website.herokuapp.com/public/img/Reddy1366x1400px.png);
+  background-size: cover;
+  background-position: center;
 }
 /* section:nth-child(3) {
   background-color: gainsboro;
