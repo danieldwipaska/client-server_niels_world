@@ -47,3 +47,7 @@ body {
 .latest-feeds .card {
   border-radius: 20px;
 }
+
+#feeds {
+  background-color: rgba(255, 255, 255, 0.5);
+}
