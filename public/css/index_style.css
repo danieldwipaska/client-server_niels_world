@@ -1,6 +1,9 @@
-section:nth-child(3) {
-  background-color: gainsboro;
+body {
+  background-image: url(https://niel-personal-website.herokuapp.com/public/img/Reddy517x625px.png);
 }
+/* section:nth-child(3) {
+  background-color: gainsboro;
+} */
 .landing-head {
   overflow: hidden;
 }
