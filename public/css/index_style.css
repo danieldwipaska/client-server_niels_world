@@ -2,7 +2,7 @@ body {
   background-image: url(https://niel-personal-website.herokuapp.com/public/img/Nick1920x1920px.png);
   background-size: cover;
 }
-#jumbotron-button {
+#jumbotron #jumbotron-button {
   border-radius: 50px;
 }
 /* section:nth-child(3) {
