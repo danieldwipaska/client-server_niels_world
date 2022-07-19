@@ -1,3 +1,7 @@
+body {
+  background-color: #b4deff;
+}
+
 .timeline ul li {
   list-style-type: none;
   position: relative;
