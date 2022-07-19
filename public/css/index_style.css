@@ -3,7 +3,7 @@ body {
   background-size: cover;
 }
 .jumbotron-button {
-  border-radius: 10%;
+  border-radius: 50%;
 }
 /* section:nth-child(3) {
   background-color: gainsboro;
