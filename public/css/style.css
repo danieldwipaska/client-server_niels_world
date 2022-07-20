@@ -1,7 +1,7 @@
-.writing-experience a {
+/* .writing-experience a {
   color: inherit;
   text-decoration: none;
-}
+} */
 .writing-experience a:hover {
   transform: scale(1.1);
 }
