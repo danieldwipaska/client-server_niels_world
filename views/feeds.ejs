@@ -14,21 +14,23 @@
         <div class="post-here">
           <% post.forEach( (e) => { %>
 
-          <div class="card my-3 mx-auto post-cards">
-            <div class="row g-0">
-              <div class="col-lg-4">
-                <img src="<%= e.imgPath %>" class="img-fluid post-image rounded-start" alt="..." />
-              </div>
-              <div class="col-lg-8">
-                <div class="card-body">
-                  <h5 class="card-title"><%= e.title %></h5>
-                  <p class="card-text"><%= e.desc %></p>
-                  <p class="card-text timestamps"><small class="text-muted"><%= e.dateCreated.toLocaleDateString() %></small></p>
-                  <p class="card-text">Kategori: <%= e.categories %></p>
+          <a href="/feeds/<%= e.slug %>"
+            ><div class="card my-3 mx-auto post-cards bg-transparent">
+              <div class="row g-0">
+                <div class="col-lg-4">
+                  <img src="<%= e.imgPath %>" class="img-fluid post-image rounded-start" alt="..." />
+                </div>
+                <div class="col-lg-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= e.title %></h5>
+                    <p class="card-text"><%= e.desc %></p>
+                    <p class="card-text timestamps"><small class="text-muted"><%= e.dateCreated.toLocaleDateString() %></small></p>
+                    <p class="card-text">Kategori: <%= e.categories %></p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div></a
+          >
 
           <% }) %>
         </div>
