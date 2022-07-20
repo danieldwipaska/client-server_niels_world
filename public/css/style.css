@@ -2,6 +2,10 @@ body {
   background-color: #fbf8f1;
 }
 
+.summary-box {
+  background-color: #55acee;
+}
+
 .timeline ul li {
   list-style-type: none;
   position: relative;
