@@ -19,11 +19,16 @@
         </div>
       </div>
       <div class="col-lg-10">
+        <div class="row mb-3">
+          <div class="col-lg p-2 box-part">
+            <p class="text-center fs-2">Recent Feeds</p>
+          </div>
+        </div>
         <div class="post-here">
           <% post.forEach( (e) => { %>
 
           <a href="/feeds/<%= e.slug %>"
-            ><div class="card mb-3 mx-auto post-cards border-0 bg-transparent">
+            ><div class="card mb-2 mx-auto post-cards border-0 bg-transparent">
               <div class="row g-0 box-part">
                 <div class="col-lg-4">
                   <img src="<%= e.imgPath %>" class="img-fluid post-image rounded-start" alt="..." />
