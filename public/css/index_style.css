@@ -1,7 +1,7 @@
 body {
   background-image: url(https://niel-personal-website.herokuapp.com/public/img/Colorgradation.png);
   background-size: cover;
-  background-position: center;
+  /* background-position: center; */
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
