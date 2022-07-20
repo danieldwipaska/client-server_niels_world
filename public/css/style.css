@@ -21,6 +21,16 @@ body {
   border-radius: 30px;
 }
 
+.framework-box {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+}
+
+.prolang-box {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+}
+
 .timeline ul li {
   list-style-type: none;
   position: relative;
