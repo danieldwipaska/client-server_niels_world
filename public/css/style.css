@@ -1,10 +1,14 @@
 body {
-  background-color: #fbf8f1;
+  background-image: url(https://niel-personal-website.herokuapp.com/public/img/Colorgradation.png);
+  background-size: cover;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .summary-box {
-  background-color: #55acee;
-  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
 }
 
 .timeline ul li {
