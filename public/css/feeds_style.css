@@ -1,4 +1,5 @@
 a {
+  background-color: rgba(255, 255, 255, 0.5);
   color: inherit;
   text-decoration: none;
 }
@@ -6,8 +7,4 @@ a {
 .post-here .post-image {
   max-height: 100%;
   max-width: 100%;
-}
-
-.category-here {
-  background-color: rgba(255, 255, 255, 0.5);
 }
