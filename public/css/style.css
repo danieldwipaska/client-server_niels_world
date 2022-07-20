@@ -4,6 +4,7 @@ body {
 
 .summary-box {
   background-color: #55acee;
+  border-radius: 50px;
 }
 
 .timeline ul li {
