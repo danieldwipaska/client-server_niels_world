@@ -6,27 +6,7 @@ body {
   background-attachment: fixed;
 }
 
-.summary-box {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 30px;
-}
-
-.contact-box {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 30px;
-}
-
-.langskill-box {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 30px;
-}
-
-.framework-box {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 30px;
-}
-
-.prolang-box {
+.box-part {
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 30px;
 }
