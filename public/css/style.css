@@ -1,9 +1,11 @@
 .writing-experience a {
-  /* color: inherit;
-  text-decoration: none; */
+  color: inherit;
+  text-decoration: none;
+}
+.writing-experience li {
   transition: all 0.2s ease-in-out;
 }
-.writing-experience a:hover {
+.writing-experience li:hover {
   transform: scale(1.1);
 }
 .timeline ul li {
