@@ -2,9 +2,9 @@
   <a href="/dashboard/feeds/add"><button type="button" class="btn btn-outline-dark">+ Add a post</button></a>
   <div class="row user-post">
     <% post.forEach( (e) => { %>
-    <div class="card my-3 mx-auto post-cards">
-      <div class="row g-0">
-        <div class="col-md-4">
+    <div class="card my-3 mx-auto post-cards border-0 bg-transparent">
+      <div class="row g-0 p-2 box-part">
+        <div class="col-md-4 p-auto m-auto">
           <a href="/feeds/<%= e.slug %>"><img src="<%= e.imgPath %>" class="img-fluid rounded-start" id="post-image" alt="..." /></a>
         </div>
         <div class="col-md-8">
