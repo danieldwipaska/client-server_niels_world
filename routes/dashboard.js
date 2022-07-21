@@ -53,4 +53,17 @@ router.get('/feeds/:slug/edit', verify, async (req, res) => {
   }
 });
 
+router.get('/feeds/category', async (req, res) => {
+  try {
+    const cats = await Category.find();
+    res.render('dashboardCategory', {
+      layout: 'layouts/main-layout',
+      cats: cats,
+      title: 'Categories',
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
