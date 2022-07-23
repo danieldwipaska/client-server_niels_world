@@ -63,8 +63,11 @@ PostSchema.pre('validate', function (next) {
 });
 
 PostSchema.virtual('imgPath').get(function () {
-  if (this.img != null && this.imgType != null) {
-    return `data:${this.imgType};charset=utf-8;base64,${this.img.toString('base64')}`;
+  const imgPath = [];
+  for (let j = 0; j < this.img.length; j++) {
+    if (this.img != null && this.imgType[j] != null) {
+      imgPath.push(`data:${this.imgType[j]};charset=utf-8;base64,${this.img[j].toString('base64')}`);
+    }
   }
 });
 
