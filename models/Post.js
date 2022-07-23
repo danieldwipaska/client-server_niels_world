@@ -23,12 +23,12 @@ const PostSchema = new mongoose.Schema(
       max: 500,
     },
     img: {
-      type: Buffer,
-      default: '',
+      type: Array,
+      default: [],
     },
     imgType: {
-      type: String,
-      default: '',
+      type: Array,
+      default: [],
     },
     categories: {
       type: Array,

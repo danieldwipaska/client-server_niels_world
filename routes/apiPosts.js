@@ -28,7 +28,6 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 router.post('/', async (req, res) => {
   // console.log(req.body);
   // res.redirect('/dashboard/feeds');
-  console.log(req.body.files);
   try {
     const user = await User.findById(req.body.userId);
     if (user.isAdmin) {
@@ -138,10 +137,23 @@ router.get('/posts', async (req, res) => {
 
 function saveCover(image, imageEncoded) {
   if (imageEncoded == null) return;
-  const cover = JSON.parse(imageEncoded);
-  if (cover != null && imageMimeTypes.includes(cover.type)) {
-    image.img = new Buffer.from(cover.data, 'base64');
-    image.imgType = cover.type;
+  for (let i = 0; i < imageEncoded.length; i++) {
+    const cover = JSON.parse(imageEncoded[i]);
+    if (cover != null && imageMimeTypes.includes(cover.type)) {
+      const buff = new Buffer.from(cover.data, 'base64');
+      image.img.push(buff);
+      image.imgType.push(cover.type);
+      //   image.img = new Buffer.from(cover.data, 'base64');
+      //   image.imgType = cover.type;
+      // }
+      // const cover = imageEncoded.map((e) => {
+      //   return JSON.parse(e);
+      // });
+      // if (cover != null && imageMimeTypes.includes(cover.type)) {
+      //   image.img = new Buffer.from(cover.data, 'base64');
+      //   image.imgType = cover.type;
+      // }
+    }
   }
 }
 
