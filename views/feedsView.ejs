@@ -3,14 +3,13 @@
     <h1><%= post.title %></h1>
     <p class="text-muted date-here"></p>
     <p class="text-muted"><small> <%= post.desc %></small></p>
-    <%- post.sanitizeHtml %>
+    <%- post.sanitizeHtml %> <%= post %>
   </div>
 </div>
 <script>
   const date = new Date('<%= post.createdAt %>');
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
-  console.log('<%= post %>');
   const img = document.querySelectorAll('img');
   img.forEach((e) => {
     e.setAttribute('src', '<%= post.imgPath %>');
