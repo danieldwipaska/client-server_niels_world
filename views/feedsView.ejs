@@ -10,7 +10,7 @@
   const date = new Date('<%= post.createdAt %>');
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
-  console.log('<%= post.imgPath %>');
+  console.log('<%= post %>');
   const img = document.querySelectorAll('img');
   img.forEach((e) => {
     e.setAttribute('src', '<%= post.imgPath %>');
