@@ -28,6 +28,7 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 router.post('/', async (req, res) => {
   // console.log(req.body);
   // res.redirect('/dashboard/feeds');
+  console.log(req.body.files);
   try {
     const user = await User.findById(req.body.userId);
     if (user.isAdmin) {
