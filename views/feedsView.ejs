@@ -10,10 +10,10 @@
   const date = new Date('<%= post.createdAt %>');
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
-
+  console.log('<%= post.imgPath %>');
   const img = document.querySelectorAll('img');
-  img.forEach((e, i) => {
-    e.setAttribute('src', '<%= post.imgPath[i] %>');
+  img.forEach((e) => {
+    e.setAttribute('src', '<%= post.imgPath %>');
     e.style.width = '100%';
     e.classList.add('centered-image');
   });
