@@ -69,6 +69,7 @@ PostSchema.virtual('imgPath').get(function () {
       imgPath.push(`data:${this.imgType[j]};charset=utf-8;base64,${this.img[j].toString('base64')}`);
     }
   }
+  return imgPath;
 });
 
 module.exports = mongoose.model('Post', PostSchema);
