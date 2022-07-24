@@ -7,24 +7,20 @@
   </div>
 </div>
 <script>
-  const img = document.querySelectorAll('img');
-</script>
-<script>
-  for (let k = 0; k < img.length; k++) {
-    img[k].setAttribute('src', '<%= post.imgPath[k] %>');
-    img[k].style.width = '100%';
-    img[k].classList.add('centered-image');
-  }
-</script>
-
-<script>
   const date = new Date('<%= post.createdAt %>');
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
+  const img = document.querySelectorAll('img');
 
-  console.log(img);
-
+  const imagePath = ['<%= post.imgPath %>'];
+  console.log(imagePath);
   // for (let k = 0; k < img.length; k++) {
+  // while (num < 0) {
+  //   img[num].setAttribute('src', ``);
+  //   img[num].style.width = '100%';
+  //   img[num].classList.add('centered-image');
+  //   num++;
+  // }
 
   // img.forEach((e) => {
   // e.setAttribute('src', '');
