@@ -35,11 +35,11 @@ router.get('/', async (req, res) => {
 
 router.get('/:slug', async (req, res) => {
   try {
-    const post = await Post.find({ slug: req.params.slug });
+    const post = await Post.findOne({ slug: req.params.slug });
     res.render('feedsView', {
       layout: 'layouts/main-layout',
-      post: post[0],
-      title: post[0].title,
+      post: post,
+      title: post.title,
     });
   } catch (err) {
     res.status(500).json(err);
