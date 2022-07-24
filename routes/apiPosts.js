@@ -59,26 +59,26 @@ router.post('/:id', async (req, res) => {
       req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
       const updatePost = new Post(req.body);
       res.json(updatePost);
-      // try {
-      //   saveCover(updatePost, req.body.files);
-      //   const updatedPost = await Post.findByIdAndUpdate(
-      //     req.params.id,
-      //     {
-      //       title: updatePost.title,
-      //       desc: updatePost.desc,
-      //       markdown: updatePost.markdown,
-      //       categories: updatePost.categories,
-      //       slug: updatePost.slug,
-      //       sanitizeHtml: updatePost.sanitizeHtml,
-      //       img: updatePost.img,
-      //       imgType: updatePost.imgType,
-      //     },
-      //     { new: true }
-      //   );
-      //   res.redirect('/dashboard/feeds');
-      // } catch (err) {
-      //   res.status(500).json(err);
-      // }
+      try {
+        saveCover(updatePost, req.body.files);
+        const updatedPost = await Post.findByIdAndUpdate(
+          req.params.id,
+          {
+            title: updatePost.title,
+            desc: updatePost.desc,
+            markdown: updatePost.markdown,
+            categories: updatePost.categories,
+            slug: updatePost.slug,
+            sanitizeHtml: updatePost.sanitizeHtml,
+            img: updatePost.img,
+            imgType: updatePost.imgType,
+          },
+          { new: true }
+        );
+        res.redirect('/dashboard/feeds');
+      } catch (err) {
+        res.status(500).json(err);
+      }
     } else {
       res.status(403).json('you can only edit your own post');
     }
@@ -138,6 +138,9 @@ router.get('/posts', async (req, res) => {
 
 function saveCover(image, imageEncoded) {
   if (imageEncoded == null) return;
+  if (typeof imageEncoded === 'string') {
+    imageEncoded = [imageEncoded];
+  }
   for (let i = 0; i < imageEncoded.length; i++) {
     const cover = JSON.parse(imageEncoded[i]);
     if (cover != null && imageMimeTypes.includes(cover.type)) {
