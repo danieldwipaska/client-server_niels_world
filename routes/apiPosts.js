@@ -58,26 +58,27 @@ router.post('/:id', async (req, res) => {
       req.body.slug = slugify(req.body.title, { lower: true, strict: true });
       req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
       const updatePost = new Post(req.body);
-      try {
-        saveCover(updatePost, req.body.files);
-        const updatedPost = await Post.findByIdAndUpdate(
-          req.params.id,
-          {
-            title: updatePost.title,
-            desc: updatePost.desc,
-            markdown: updatePost.markdown,
-            categories: updatePost.categories,
-            slug: updatePost.slug,
-            sanitizeHtml: updatePost.sanitizeHtml,
-            img: updatePost.img,
-            imgType: updatePost.imgType,
-          },
-          { new: true }
-        );
-        res.redirect('/dashboard/feeds');
-      } catch (err) {
-        res.status(500).json(err);
-      }
+      res.json(updatePost);
+      // try {
+      //   saveCover(updatePost, req.body.files);
+      //   const updatedPost = await Post.findByIdAndUpdate(
+      //     req.params.id,
+      //     {
+      //       title: updatePost.title,
+      //       desc: updatePost.desc,
+      //       markdown: updatePost.markdown,
+      //       categories: updatePost.categories,
+      //       slug: updatePost.slug,
+      //       sanitizeHtml: updatePost.sanitizeHtml,
+      //       img: updatePost.img,
+      //       imgType: updatePost.imgType,
+      //     },
+      //     { new: true }
+      //   );
+      //   res.redirect('/dashboard/feeds');
+      // } catch (err) {
+      //   res.status(500).json(err);
+      // }
     } else {
       res.status(403).json('you can only edit your own post');
     }
