@@ -13,6 +13,11 @@
   const img = document.querySelectorAll('img');
   console.log(img);
   // let num = 0;
+  for (let k = 0; k < img.length; k++) {
+    img[k].setAttribute('src', '<%- post.imgPath[k] %>');
+    img[k].style.width = '100%';
+    img[k].classList.add('centered-image');
+  }
   // img.forEach((e) => {
   // e.setAttribute('src', '');
   //   e.style.width = '100%';
