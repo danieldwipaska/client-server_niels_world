@@ -6,20 +6,22 @@
     <%- post.sanitizeHtml %>
   </div>
 </div>
+<% for (let k = 0; k < 3; k++) { %>
+<script>
+  img[k].setAttribute('src', '<%= post.imgPath[k] %>');
+  img[k].style.width = '100%';
+  img[k].classList.add('centered-image');
+</script>
+<% } %>
+
 <script>
   const date = new Date('<%= post.createdAt %>');
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
   const img = document.querySelectorAll('img');
   console.log(img);
-  let num = 0;
+
   // for (let k = 0; k < img.length; k++) {
-  while (num < 3) {
-    img[num].setAttribute('src', `https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-6rAKKyAhgzM%2FUm6Wo5sfNaI%2FAAAAAAAAHAI%2FhqJwuT4Q5b8%2Fs1600%2FBanks.jpg&f=1&nofb=1`);
-    img[num].style.width = '100%';
-    img[num].classList.add('centered-image');
-    num++;
-  }
 
   // img.forEach((e) => {
   // e.setAttribute('src', '');
