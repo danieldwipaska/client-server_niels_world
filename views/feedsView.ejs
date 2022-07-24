@@ -11,9 +11,9 @@
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
   const img = document.querySelectorAll('img');
-  let num = 0;
+  // let num = 0;
   img.forEach((e, i) => {
-    e.setAttribute('src', '<%- post.imgPath[num] %>');
+    e.setAttribute('src', '<%- post.imgPath[0] %>');
     e.style.width = '100%';
     e.classList.add('centered-image');
     num++;
