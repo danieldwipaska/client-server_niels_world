@@ -137,12 +137,13 @@ router.get('/posts', async (req, res) => {
 });
 
 function saveCover(image, imageEncoded) {
-  if (imageEncoded == null) return;
-  if (typeof imageEncoded === 'string') {
-    imageEncoded = [imageEncoded];
+  let imgEnc = imageEncoded;
+  if (imgEnc == null) return;
+  if (typeof imgEnc === 'string') {
+    imgEnc = [imageEncoded];
   }
-  for (let i = 0; i < imageEncoded.length; i++) {
-    const cover = JSON.parse(imageEncoded[i]);
+  for (let i = 0; i < imgEnc.length; i++) {
+    const cover = JSON.parse(imgEnc[i]);
     if (cover != null && imageMimeTypes.includes(cover.type)) {
       const buff = new Buffer.from(cover.data, 'base64');
       image.img.push(buff);
