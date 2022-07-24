@@ -15,7 +15,7 @@
   let num = 0;
   // for (let k = 0; k < img.length; k++) {
   while (num < 3) {
-    img[num].setAttribute('src', '<%= post.imgPath[num] %>');
+    img[num].setAttribute('src', `<%= post.imgPath[${num}] %>`);
     img[num].style.width = '100%';
     img[num].classList.add('centered-image');
     num++;
