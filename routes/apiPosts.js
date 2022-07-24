@@ -58,7 +58,7 @@ router.post('/:id', async (req, res) => {
       req.body.slug = slugify(req.body.title, { lower: true, strict: true });
       req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
       const updatePost = new Post(req.body);
-      res.json(updatePost);
+      // res.json(updatePost);
       try {
         saveCover(updatePost, req.body.files);
         const updatedPost = await Post.findByIdAndUpdate(
