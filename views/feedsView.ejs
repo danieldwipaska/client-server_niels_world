@@ -11,8 +11,8 @@
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
   const img = document.querySelectorAll('img');
-  img.forEach((e) => {
-    e.setAttribute('src', '<%- post.imgPath[0] %>');
+  img.forEach((e, i) => {
+    e.setAttribute('src', '<%- post.imgPath[i] %>');
     e.style.width = '100%';
     e.classList.add('centered-image');
   });
