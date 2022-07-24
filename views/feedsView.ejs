@@ -9,13 +9,13 @@
 <script>
   const img = document.querySelectorAll('img');
 </script>
-<% for (let k = 0; k < 3; k++) { %>
 <script>
-  img[k].setAttribute('src', '<%= post.imgPath[k] %>');
-  img[k].style.width = '100%';
-  img[k].classList.add('centered-image');
+  for (let k = 0; k < img.length; k++) {
+    img[k].setAttribute('src', '<%= post.imgPath[k] %>');
+    img[k].style.width = '100%';
+    img[k].classList.add('centered-image');
+  }
 </script>
-<% } %>
 
 <script>
   const date = new Date('<%= post.createdAt %>');
