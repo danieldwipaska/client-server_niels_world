@@ -3,7 +3,7 @@
     <h1><%= post.title %></h1>
     <p class="text-muted date-here"></p>
     <p class="text-muted"><small> <%= post.desc %></small></p>
-    <%- post.sanitizeHtml %> <%- post.imgPath[0] %>
+    <%- post.sanitizeHtml %>
   </div>
 </div>
 <script>
@@ -12,7 +12,7 @@
   dateHere.innerHTML = date.toLocaleDateString();
   const img = document.querySelectorAll('img');
   img.forEach((e) => {
-    e.setAttribute('src', '<%= post.imgPath %>');
+    e.setAttribute('src', '<%- post.imgPath[0] %>');
     e.style.width = '100%';
     e.classList.add('centered-image');
   });
