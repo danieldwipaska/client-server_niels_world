@@ -14,10 +14,8 @@
 
   const imagePathString = '<%= post.imgPath %>';
   const imagePath = imagePathString.split('data');
-  const newImagePath = imagePath.map((e) => {
-    return 'data' + e;
-  });
-  console.log(newImagePath);
+
+  console.log(imagePath);
   // for (let k = 0; k < img.length; k++) {
   // while (num < 0) {
   //   img[num].setAttribute('src', ``);
