@@ -6,6 +6,9 @@
     <%- post.sanitizeHtml %>
   </div>
 </div>
+<script>
+  const img = document.querySelectorAll('img');
+</script>
 <% for (let k = 0; k < 3; k++) { %>
 <script>
   img[k].setAttribute('src', '<%= post.imgPath[k] %>');
@@ -18,7 +21,7 @@
   const date = new Date('<%= post.createdAt %>');
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
-  const img = document.querySelectorAll('img');
+
   console.log(img);
 
   // for (let k = 0; k < img.length; k++) {
