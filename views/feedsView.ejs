@@ -12,17 +12,21 @@
   dateHere.innerHTML = date.toLocaleDateString();
   const img = document.querySelectorAll('img');
   console.log(img);
-  // let num = 0;
+  let num = 0;
   // for (let k = 0; k < img.length; k++) {
-  img[0].setAttribute('src', '<%= post.imgPath[0] %>');
-  img[0].style.width = '100%';
-  img[0].classList.add('centered-image');
-  img[1].setAttribute('src', '<%= post.imgPath[1] %>');
-  img[1].style.width = '100%';
-  img[1].classList.add('centered-image');
-  img[2].setAttribute('src', '<%= post.imgPath[2] %>');
-  img[2].style.width = '100%';
-  img[2].classList.add('centered-image');
+  while (num < 3) {
+    img[num].setAttribute('src', '<%= post.imgPath[num] %>');
+    img[num].style.width = '100%';
+    img[num].classList.add('centered-image');
+    num++;
+  }
+
+  // img[1].setAttribute('src', '<%= post.imgPath[1] %>');
+  // img[1].style.width = '100%';
+  // img[1].classList.add('centered-image');
+  // img[2].setAttribute('src', '<%= post.imgPath[2] %>');
+  // img[2].style.width = '100%';
+  // img[2].classList.add('centered-image');
   // }
   // img.forEach((e) => {
   // e.setAttribute('src', '');
