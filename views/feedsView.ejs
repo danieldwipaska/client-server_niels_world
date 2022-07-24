@@ -12,7 +12,8 @@
   dateHere.innerHTML = date.toLocaleDateString();
   const img = document.querySelectorAll('img');
 
-  const imagePath = ['<%= post.imgPath %>'];
+  const imagePathString = '<%= post.imgPath %>';
+  const imagePath = imagePathString.split(',');
   console.log(imagePath);
   // for (let k = 0; k < img.length; k++) {
   // while (num < 0) {
