@@ -13,9 +13,15 @@
   const img = document.querySelectorAll('img');
 
   const imagePathString = '<%= post.imgPath %>';
-  const imagePath = imagePathString.split('data');
+  const imagePath = imagePathString.split(',');
+  const newImgPath = [];
+  for (let i = 0; i < imagePath.length; i++) {
+    if (i % 2 === 0) {
+      newImgPath.push(imagePath[i] + imagePath[i + 1]);
+    }
+  }
 
-  console.log(imagePath);
+  console.log(newImgPath);
   // for (let k = 0; k < img.length; k++) {
   // while (num < 0) {
   //   img[num].setAttribute('src', ``);
