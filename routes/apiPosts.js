@@ -79,7 +79,7 @@ router.post('/:id', async (req, res) => {
         res.status(500).json(err);
       }
     } else {
-      res.status.apply(403).json('you can only edit your own post');
+      res.status.status(403).json('you can only edit your own post');
     }
   } catch (err) {
     res.status(500).json(err);
