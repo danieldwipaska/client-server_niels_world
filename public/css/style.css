@@ -8,7 +8,7 @@
 .writing-experience li:hover {
   transform: scale(1.01);
 }
-.timeline ul li {
+/* .timeline ul li {
   list-style-type: none;
   position: relative;
   width: 6px;
@@ -31,15 +31,15 @@
 }
 
 /* inside div */
-.timeline ul li div {
+/* .timeline ul li div {
   position: relative;
   bottom: -30px;
   width: 400px;
   padding: 15px;
   z-index: 2;
-}
+} */
 
-.timeline ul li div::before {
+/* .timeline ul li div::before {
   content: '';
   position: absolute;
   bottom: 7px;
@@ -47,8 +47,8 @@
   height: 0;
   border-style: solid;
   z-index: 2;
-}
-#work-tl {
+} */
+/* #work-tl {
   background: #ffcc66;
   color: black;
 }
@@ -67,10 +67,10 @@
   background: #f45b69;
   width: 150px;
   left: -70px;
-}
+} */
 
 /* some styles for odd and even elements */
-.timeline ul li:nth-child(odd) div {
+/* .timeline ul li:nth-child(odd) div {
   left: 45px;
 }
 
@@ -88,10 +88,10 @@
   right: -15px;
   border-width: 8px 0 8px 16px;
   border-color: transparent transparent transparent transparent;
-}
+} */
 
 /* transition */
-.timeline ul li::after {
+/* .timeline ul li::after {
   background: #fff;
   transition: background 0.5s ease-in-out;
 }
@@ -118,10 +118,10 @@
   transform: none;
   visibility: visible;
   opacity: 1;
-}
+} */
 
 /* custom shape of timeline */
-.timeline-clippy ul li::after {
+/* .timeline-clippy ul li::after {
   width: 40px;
   height: 40px;
   border-radius: 0;
@@ -157,19 +157,19 @@
   100% {
     transform: translateX(-50%) scale(1);
   }
-}
+} */
 
 /* responsiveness */
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
   .timeline ul li div {
     width: 250px;
   }
   .timeline ul li:nth-child(even) div {
-    left: -289px; /*250+45-6*/
+    left: -289px; 
   }
-}
+} */
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .timeline ul li {
     margin-left: 20px;
   }
@@ -187,7 +187,7 @@
     border-width: 8px 16px 8px 0;
     border-color: transparent #f45b69 transparent transparent;
   }
-}
+}  */
 
 /* Style the Image Used to Trigger the Modal */
 .certificate img {
