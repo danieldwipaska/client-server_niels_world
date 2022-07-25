@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
       const newCat = new Category(req.body);
       try {
         const savedCat = await newCat.save();
-        res.json(savedCat);
+        res.redirect('/dashboard/feeds/category');
       } catch (err) {
         res.status(500).json(err);
       }
