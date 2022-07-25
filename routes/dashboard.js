@@ -53,7 +53,7 @@ router.get('/feeds/:slug/edit', verify, async (req, res) => {
   }
 });
 
-router.get('/feeds/category', async (req, res) => {
+router.get('/feeds/category', verify, async (req, res) => {
   try {
     const cats = await Category.find();
     res.render('dashboardCategory', {

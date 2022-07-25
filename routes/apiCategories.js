@@ -1,11 +1,12 @@
 const router = require('express').Router();
+const verify = require('./verifyToken');
 const Category = require('../models/Category');
 const User = require('../models/User');
 
 // create a category
-router.post('/', async (req, res) => {
+router.post('/', verify, async (req, res) => {
   try {
-    const user = await User.findById(req.body.userId);
+    const user = await User.findOne({ username: req.validUser });
     if (user.isAdmin) {
       const newCat = new Category(req.body);
       try {
