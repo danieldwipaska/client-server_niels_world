@@ -6,7 +6,7 @@ const User = require('../models/User');
 // create a category
 router.post('/', verify, async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.validUser });
+    const user = await User.findOne({ username: req.validUser.name });
     if (user.isAdmin) {
       const newCat = new Category(req.body);
       try {
