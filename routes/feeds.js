@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
 const Category = require('../models/Category');
+const Comment = require('../models/Comment');
 
+//GET ALL FEEDS BY CATEGORY
 router.get('/', async (req, res) => {
   const catSlug = req.query.category;
   try {
@@ -33,13 +35,16 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:slug', async (req, res) => {
+//GET A FEED
+router.get('/:slug', verifyTokenComment, async (req, res) => {
   try {
     const post = await Post.findOne({ slug: req.params.slug });
+    const comments = await Comment.find({ postSlug: req.params.slug }).sort({ createdAt: 1 });
     res.render('feedsView', {
       layout: 'layouts/main-layout',
       post: post,
       title: post.title,
+      comment: comments, //array
     });
   } catch (err) {
     res.status(500).json(err);

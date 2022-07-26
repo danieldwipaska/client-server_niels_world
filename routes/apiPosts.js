@@ -7,25 +7,10 @@ const createDomPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
 const dompurify = createDomPurify(new JSDOM().window);
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/jpg'];
-
-// //Configuration for Multer
-// const multerStorage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'public');
-//   },
-//   filename: (req, file, cb) => {
-//     const ext = file.mimetype.split('/')[1];
-//     cb(null, `img/admin-${file.fieldname}-${Date.now()}.${ext}`);
-//   },
-// });
-
-// //Calling the "multer" Function
-// const upload = multer({
-//   storage: multerStorage,
-// });
+const verify = require('./verifyToken');
 
 //CREATE A POST
-router.post('/', async (req, res) => {
+router.post('/', verify, async (req, res) => {
   // console.log(req.body);
   // res.redirect('/dashboard/feeds');
   try {
@@ -51,7 +36,7 @@ router.post('/', async (req, res) => {
 
 //UPDATE A POST
 // it should be a PUT
-router.post('/:id', async (req, res) => {
+router.post('/:id', verify, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.userId === req.body.userId) {
@@ -88,7 +73,7 @@ router.post('/:id', async (req, res) => {
 });
 
 //DELETE A POST
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', verify, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (post.userId === req.body.userId) {
@@ -116,25 +101,25 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-//GET ALL POST
-router.get('/', async (req, res) => {
-  try {
-    const post = await Post.find();
-    res.json(post);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// //GET ALL POST
+// router.get('/', async (req, res) => {
+//   try {
+//     const post = await Post.find();
+//     res.json(post);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
-//GET USER POSTS
-router.get('/posts', async (req, res) => {
-  try {
-    const posts = await Post.find({ username: req.query.userId });
-    req.json(posts);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// //GET USER POSTS
+// router.get('/posts', async (req, res) => {
+//   try {
+//     const posts = await Post.find({ username: req.query.userId });
+//     req.json(posts);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 function saveCover(image, imageEncoded) {
   let imgEnc = imageEncoded;

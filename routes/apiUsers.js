@@ -2,10 +2,11 @@ const router = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 // const verify = require('./verifyToken');
+const verify = require('./verifyToken');
 const verify2 = require('./verifyTokenForNav');
 
 //UPDATE
-router.put('/:id', async (req, res) => {
+router.put('/:id', verify, async (req, res) => {
   // Check whether user has logined or not
   if (req.body.userId === req.params.id || req.body.isAdmin) {
     // if client send request containing password

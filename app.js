@@ -17,6 +17,7 @@ const authRoute = require('./routes/apiAuth');
 const userRoute = require('./routes/apiUsers');
 const postRoute = require('./routes/apiPosts');
 const categoryRoute = require('./routes/apiCategories');
+const commentRoute = require('./routes/apiComments');
 
 // middlewares
 app.use(expressLayouts);
@@ -50,6 +51,7 @@ app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
 app.use('/api/posts', postRoute);
 app.use('/api/categories', categoryRoute);
+app.use('/api/comments', commentRoute);
 app.get('*', function (req, res) {
   res.sendStatus(404);
 });

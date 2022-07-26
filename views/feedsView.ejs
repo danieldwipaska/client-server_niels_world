@@ -6,12 +6,49 @@
     <%- post.sanitizeHtml %>
   </div>
 </div>
+<div class="container-md my-2 px-4">
+  <div class="row p-5 box-part">
+    <div class="col-md-8 mx-auto">
+      <h3 class="mb-3">Komentar:</h3>
+      <% comments.forEach((e) => { %>
+      <p class="mb-1"><strong><%= e.fullname %></strong></p>
+      <p class="mb-2"><%= e.comment %></p>
+      <% }); %>
+    </div>
+  </div>
+  <div class="row mt-2 p-5 box-part">
+    <div class="col-md-8 mx-auto">
+      <h3 class="mb-3">Tinggalkan Komentar</h3>
+      <form id="form" action="/api/comments" method="post">
+        <div class="mb-3" style="display: none">
+          <label for="postId" class="form-label">Post ID</label>
+          <input type="text" class="form-control" name="postId" id="postId" placeholder="only post ID" value="<%= post._id  %>" />
+        </div>
+        <div class="mb-3">
+          <label for="postSlug" class="form-label">Post Slug</label>
+          <input type="text" class="form-control" name="postSlug" id="postSlug" placeholder="Slug" value="<%= post.slug %>" />
+        </div>
+        <div class="mb-3">
+          <label for="fullname" class="form-label">Nama</label>
+          <textarea class="form-control" name="fullname" placeholder="Maksimal 50 karakter" id="fullname"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="comment" class="form-label">Komentar</label>
+          <textarea class="form-control" name="comment" placeholder="Maksimal 500 karakter" id="comment"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script>
   const date = new Date('<%= post.createdAt %>');
   const dateHere = document.querySelector('.date-here');
   dateHere.innerHTML = date.toLocaleDateString();
-  const img = document.querySelectorAll('img');
 
+  const img = document.querySelectorAll('img');
   const imagePathString = '<%= post.imgPath %>';
   const imagePath = imagePathString.split(',');
   const newImgPath = [];
