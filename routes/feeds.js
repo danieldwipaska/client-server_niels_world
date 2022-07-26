@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 });
 
 //GET A FEED
-router.get('/:slug', verifyTokenComment, async (req, res) => {
+router.get('/:slug', async (req, res) => {
   try {
     const post = await Post.findOne({ slug: req.params.slug });
     const comments = await Comment.find({ postSlug: req.params.slug }).sort({ createdAt: 1 });
