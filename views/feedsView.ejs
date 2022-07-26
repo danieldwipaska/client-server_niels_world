@@ -10,13 +10,15 @@
   <div class="row">
     <div class="col-md-8 mx-auto p-5 box-part">
       <h3 class="mb-3">Komentar:</h3>
-      <% comments.forEach((e) => { %>
+      <% if(!comments) { %>
+      <p class="text-muted">Belum ada komentar</p>
+      <% } %> <% comments.forEach((e) => { %>
       <p class="mb-1"><strong><%= e.fullname %></strong></p>
       <p class="mb-2"><%= e.comment %></p>
       <% }); %>
     </div>
   </div>
-  <div class="row mt-2 p-5 box-part">
+  <div class="row mt-2">
     <div class="col-md-8 mx-auto p-5 box-part">
       <h3 class="mb-3">Tinggalkan Komentar Anda</h3>
       <form id="form" action="/api/comments" method="post">
