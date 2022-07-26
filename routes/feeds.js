@@ -44,7 +44,7 @@ router.get('/:slug', async (req, res) => {
       layout: 'layouts/main-layout',
       post: post,
       title: post.title,
-      comment: comments, //array
+      comments: comments, //array
     });
   } catch (err) {
     res.status(500).json(err);
