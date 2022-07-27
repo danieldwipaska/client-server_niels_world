@@ -67,7 +67,7 @@ bot.on('message', async (message) => {
   const msgId = message.from.id;
   const msg = message.text;
   if (msg === process.env.TELE_MESSAGE) {
-    const comments = await Comment.find();
+    const comments = await Comment.find().sort({ createdAt: -1 });
     if (comments[0] === undefined || comments[0] === null) {
       bot.sendMessage(msgId, 'Belum ada komentar');
     } else {
