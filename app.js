@@ -2,10 +2,6 @@ const express = require('express');
 const app = express();
 const Comment = require('./models/Comment');
 
-//TELEGRAM BOT
-const telegramBot = require('node-telegram-bot-api');
-const bot = new telegramBot(process.env.TELE_TOKEN, { polling: true });
-
 const homeRoute = require('./routes/home');
 // const infoRoute = require('./routes/info');
 const feedRoute = require('./routes/feeds');
@@ -60,24 +56,6 @@ app.use('/api/categories', categoryRoute);
 app.use('/api/comments', commentRoute);
 app.get('*', function (req, res) {
   res.sendStatus(404);
-});
-
-//TELEGRAM BOT
-bot.on('message', async (message) => {
-  const msgId = message.from.id;
-  const msg = message.text;
-  if (msg === process.env.TELE_MESSAGE) {
-    const comments = await Comment.find().sort({ createdAt: -1 });
-    if (comments[0] === undefined || comments[0] === null) {
-      bot.sendMessage(msgId, 'Belum ada komentar');
-    } else {
-      comments.forEach((e) => {
-        bot.sendMessage(msgId, `URL:\nhttps://danieldwipaska.herokuapp.com/feeds/${e.postSlug}\n\nSender: ${e.fullname}\n\nComment:\n\"${e.comment}\"`);
-      });
-    }
-  } else {
-    bot.sendMessage(msgId, 'Coba kata kunci lain');
-  }
 });
 
 // listen at 3000
