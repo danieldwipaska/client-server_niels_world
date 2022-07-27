@@ -1,5 +1,10 @@
 const express = require('express');
 const app = express();
+
+//TELEGRAM BOT
+const telegramBot = require('node-telegram-bot-api');
+const bot = new telegramBot(process.env.TELE_TOKEN, { polling: true });
+
 const homeRoute = require('./routes/home');
 // const infoRoute = require('./routes/info');
 const feedRoute = require('./routes/feeds');
@@ -54,6 +59,12 @@ app.use('/api/categories', categoryRoute);
 app.use('/api/comments', commentRoute);
 app.get('*', function (req, res) {
   res.sendStatus(404);
+});
+
+//TELEGRAM BOT
+bot.on('message', (message) => {
+  const msg = message.from.id;
+  bot.sendMessage(msg, 'Hai dude');
 });
 
 // listen at 3000
