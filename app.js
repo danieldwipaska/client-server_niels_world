@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
+const Comment = require('./models/Comment');
 
-// //TELEGRAM BOT
-// const telegramBot = require('node-telegram-bot-api');
-// const bot = new telegramBot(process.env.TELE_TOKEN, { polling: true });
+//TELEGRAM BOT
+const telegramBot = require('node-telegram-bot-api');
+const bot = new telegramBot(process.env.TELE_TOKEN, { polling: true });
 
 const homeRoute = require('./routes/home');
 // const infoRoute = require('./routes/info');
@@ -62,11 +63,17 @@ app.get('*', function (req, res) {
 });
 
 //TELEGRAM BOT
-// bot.on('message', (message) => {
-//   const msg = message.from.id;
-//   console.log(message.from.id);
-//   bot.sendMessage(msg, 'Hai dude');
-// });
+bot.on('message', async (message) => {
+  if (message.text === process.env.TELE_MESSAGE) {
+    const comments = await Comment.find().sort({ createdAt: -1 });
+    const msg = message.from.id;
+    comments.forEach((e) => {
+      bot.sendMessage(msg, `${e.fullname} ${e.comment}`);
+    });
+  } else {
+    bot.sendMessage(msg, 'Coba kata kunci lain');
+  }
+});
 
 // listen at 3000
 const port = process.env.PORT || 3000;
