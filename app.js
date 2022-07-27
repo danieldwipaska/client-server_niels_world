@@ -68,9 +68,13 @@ bot.on('message', async (message) => {
   const msg = message.text;
   if (msg === process.env.TELE_MESSAGE) {
     const comments = await Comment.find().sort({ createdAt: -1 });
-    comments.forEach((e) => {
-      bot.sendMessage(msgId, `Post Slug:\n${e.postSlug}\n\nURL:\nhttps://danieldwipaska.herokuapp.com/feeds/${e.postSlug}\n\nSender:\n${e.fullname}\n\nComment:\n\"${e.comment}\"`);
-    });
+    if (comments[0] === undefined || comments[0] === null) {
+      bot.sendMessage(msgId, 'Belum ada komentar');
+    } else {
+      comments.forEach((e) => {
+        bot.sendMessage(msgId, `URL:\nhttps://danieldwipaska.herokuapp.com/feeds/${e.postSlug}\n\nSender: ${e.fullname}\n\nComment:\n\"${e.comment}\"`);
+      });
+    }
   } else {
     bot.sendMessage(msgId, 'Coba kata kunci lain');
   }
