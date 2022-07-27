@@ -64,6 +64,7 @@ app.get('*', function (req, res) {
 //TELEGRAM BOT
 bot.on('message', (message) => {
   const msg = message.from.id;
+  console.log(message.from.id);
   bot.sendMessage(msg, 'Hai dude');
 });
 
