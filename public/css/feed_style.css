@@ -32,3 +32,15 @@
   background: rgb(199, 76, 76);
   color: white;
 }
+
+/* Telegram */
+.fa-telegram {
+  background: #55acee;
+  color: white;
+}
+
+/* Whatsapp */
+.fa-whatsapp {
+  background: #5cad48;
+  color: rgb(0, 0, 0);
+}
