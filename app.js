@@ -69,7 +69,7 @@ bot.on('message', async (message) => {
   if (msg === process.env.TELE_MESSAGE) {
     const comments = await Comment.find().sort({ createdAt: -1 });
     comments.forEach((e) => {
-      bot.sendMessage(msgId, `${e.fullname}: ${e.comment}`);
+      bot.sendMessage(msgId, `Post Slug: ${e.postSlug}\n\n${e.fullname}:\n\"${e.comment}\"`);
     });
   } else {
     bot.sendMessage(msgId, 'Coba kata kunci lain');
