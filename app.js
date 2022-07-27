@@ -63,16 +63,16 @@ app.get('*', function (req, res) {
 });
 
 //TELEGRAM BOT
-bot.on('message', async (message) => {
-  if (message.text === process.env.TELE_MESSAGE) {
-    const comments = await Comment.find().sort({ createdAt: -1 });
-    const msg = message.from.id;
-    comments.forEach((e) => {
-      bot.sendMessage(msg, `${e.fullname} ${e.comment}`);
-    });
-  } else {
-    bot.sendMessage(msg, 'Coba kata kunci lain');
-  }
+bot.on('message', (message) => {
+  // if (message.text === process.env.TELE_MESSAGE) {
+  // const comments = await Comment.find().sort({ createdAt: -1 });
+  const msg = message.from.id;
+  // comments.forEach((e) => {
+  bot.sendMessage(msg, 'testing');
+  // });
+  // } else {
+  // bot.sendMessage(msg, 'Coba kata kunci lain');
+  // }
 });
 
 // listen at 3000
