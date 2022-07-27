@@ -66,9 +66,10 @@ app.get('*', function (req, res) {
 bot.on('message', (message) => {
   // if (message.text === process.env.TELE_MESSAGE) {
   // const comments = await Comment.find().sort({ createdAt: -1 });
-  const msg = message.from.id;
+  const msgId = message.from.id;
+  const msg = message.text;
   // comments.forEach((e) => {
-  bot.sendMessage(msg, 'testing');
+  bot.sendMessage(msgId, `testing ${msg}`);
   // });
   // } else {
   // bot.sendMessage(msg, 'Coba kata kunci lain');
