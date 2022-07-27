@@ -20,6 +20,7 @@
     "jsonwebtoken": "^8.5.1",
     "marked": "^4.0.15",
     "mongoose": "^6.3.3",
+    "node-telegram-bot-api": "^0.58.0",
     "nodemon": "^2.0.16",
     "slugify": "^1.6.5"
   }
