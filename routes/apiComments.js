@@ -12,7 +12,10 @@ router.post('/', async (req, res) => {
     const savedComment = await newComment.save();
 
     //TELEGRAM BOT
-    bot.sendMessage(savedComment.fullname);
+    bot.on('message', (message) => {
+      bot.sendMessage(savedComment.fullname);
+    });
+
     res.redirect(`/feeds/${savedComment.postSlug}`);
   } catch (err) {
     res.status(500).json(err);
