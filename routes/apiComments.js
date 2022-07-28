@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
   try {
     const newComment = new Comment(req.body);
     const savedComment = await newComment.save();
-    const msgId = 5368829684;
+    const msgId = process.env.TELE_SECRET;
 
     bot.sendMessage(msgId, `URL:\nhttps://danieldwipaska.herokuapp.com/feeds/${savedComment.postSlug}\n\nSender: ${savedComment.fullname}\n\nComment:\n\"${savedComment.comment}\"`);
 
