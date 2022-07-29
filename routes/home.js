@@ -22,7 +22,7 @@ router.get('/', ipAddress, async (req, res) => {
   }
 });
 
-router.get('/about', (req, res) => {
+router.get('/about', ipAddress, (req, res) => {
   res.render('about', {
     layout: 'layouts/main-layout',
     title: 'About me',
