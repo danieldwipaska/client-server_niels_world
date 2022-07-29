@@ -4,8 +4,8 @@ const Post = require('../models/Post');
 
 router.get('/', async (req, res) => {
   try {
-    const posts = await Post.find().sort({ createdAt: -1 });
-    // const posts = post.slice(0, 2);
+    const post = await Post.find().sort({ createdAt: -1 });
+    const posts = post.slice(0, 4);
     posts.forEach((e) => {
       const dateCreated = new Date(e.createdAt);
       e.dateCreated = dateCreated;
