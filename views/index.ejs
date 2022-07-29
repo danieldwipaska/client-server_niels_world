@@ -32,36 +32,18 @@
     </div>
     <br />
     <div class="row latest-feeds">
-      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" style="max-height: 800px">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 6"></button>
-        </div>
-        <div class="carousel-inner">
-          <% post.forEach((e) => { %>
-          <div class="carousel-item" data-bs-interval="6000">
-            <img src="<%= e.imgPath[0] %> " class="d-block w-100" alt="<%= e.title %>">
-            <a href="/feeds/<%= e.slug %>"><div class="carousel-caption d-none d-md-block pt-3 slide-desc">
-              <h5><%= e.title %></h5>
-              <p><%= e.desc %></p>
+      <% post.forEach((e) => { %>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= e.title %></h5>
               <p><small><%= e.dateCreated.toLocaleDateString() %></small></p>
-            </div></a>
+              <p class="card-text"><%= e.desc %></p>
+              <a href="/feeds/<%= e.slug %>" class="btn btn-outline-dark">Read more</a>
+            </div>
           </div>
-          <% }); %> 
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+        <% }); %>
     </div>
     <br /><br />
   </div>
@@ -189,7 +171,4 @@
   link2.setAttribute('rel', 'stylesheet');
   link2.setAttribute('href', '../../public/css/index_style.css');
   head.appendChild(link2);
-
-  const carouselItem = document.querySelector('.carousel-item')
-  carouselItem.classList.add('active');
 </script>
