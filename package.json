@@ -9,6 +9,7 @@
   "author": "Daniel Kamasi",
   "license": "ISC",
   "dependencies": {
+    "@supercharge/request-ip": "^1.2.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "dompurify": "^2.3.8",
