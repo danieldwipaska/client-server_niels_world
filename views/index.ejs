@@ -43,8 +43,8 @@
         </div>
         <div class="carousel-inner">
           <% post.forEach((e) => { %>
-          <div class="carousel-item" data-bs-interval="6000" style="max-height: 600">
-            <img src="<%= e.imgPath[0] %> " class="d-block w-100" alt="<%= e.title %>" style="height: 600">
+          <div class="carousel-item" data-bs-interval="6000" style="height: 600">
+            <img src="<%= e.imgPath[0] %> " class="d-block" alt="<%= e.title %>" style="height: 600">
             <a href="/feeds/<%= e.slug %>"><div class="carousel-caption d-none d-md-block pt-3 slide-desc">
               <h5><%= e.title %></h5>
               <p><%= e.desc %></p>
