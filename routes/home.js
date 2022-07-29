@@ -15,7 +15,6 @@ router.get('/', ipAddress, async (req, res) => {
       layout: 'layouts/main-layout',
       post: posts,
       title: 'Home',
-      ipAddress: req.ip,
     });
   } catch (err) {
     res.status(500).json(err);
