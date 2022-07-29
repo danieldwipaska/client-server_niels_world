@@ -6,7 +6,7 @@ module.exports = async function (req, res, next) {
 
   try {
     const ipData = await IpData.findOne({ data: ipAddr });
-    if (!ipData) {
+    if (ipData === undefined || ipData === null) {
       try {
         const newIpData = new IpData(ipAddr);
         await newIpData.save();
