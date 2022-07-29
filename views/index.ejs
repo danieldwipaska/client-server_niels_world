@@ -37,10 +37,10 @@
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 4"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 5"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 6"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 5"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="6" aria-label="Slide 6"></button>
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
@@ -51,9 +51,9 @@
             </div>
           </div>
           <% post.forEach((e) => { %>
-          <div class="carousel-item pt-3 box-part" data-bs-interval="3000">
+          <div class="carousel-item" data-bs-interval="3000">
             <img src="<%= e.imgPath[0] %> " class="d-block w-100" alt="<%= e.title %>" style="max-height: 600">
-            <a href="/feeds/<%= e.slug %>"><div class="carousel-caption d-none d-md-block">
+            <a href="/feeds/<%= e.slug %>"><div class="carousel-caption d-none d-md-block pt-3 box-part">
               <h5><%= e.title %></h5>
               <p><%= e.desc %></p>
               <p><small><%= e.dateCreated.toLocaleDateString() %></small></p>
