@@ -4,14 +4,14 @@ const router = express.Router();
 const Post = require('../models/Post');
 const Category = require('../models/Category');
 const verify = require('./verifyToken');
-const IpData = require('../models/IpCount');
+// const IpData = require('../models/IpCount');
 
 // GET USER POSTS
 router.get('/feeds', verify, async (req, res) => {
   try {
     const posts = await Post.find().sort({ createdAt: -1 });
-    const ipData = await IpData.find();
-    const ipCount = ipData.length;
+    // const ipData = await IpData.find();
+    // const ipCount = ipData.length;
     posts.forEach((e) => {
       const dateCreated = new Date(e.createdAt);
       e.dateCreated = dateCreated;
@@ -20,7 +20,7 @@ router.get('/feeds', verify, async (req, res) => {
       layout: 'layouts/main-layout',
       post: posts,
       title: 'Dashboard',
-      ipCount: ipCount,
+      // ipCount: ipCount,
     });
   } catch (err) {
     res.status(500).json(err);

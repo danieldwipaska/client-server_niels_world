@@ -3,10 +3,10 @@ const router = express.Router();
 const Post = require('../models/Post');
 const Category = require('../models/Category');
 const Comment = require('../models/Comment');
-const ipAddress = require('./requestIp');
+// const ipAddress = require('./requestIp');
 
 //GET ALL FEEDS BY CATEGORY
-router.get('/', ipAddress, async (req, res) => {
+router.get('/', async (req, res) => {
   const catSlug = req.query.category;
   try {
     const cats = await Category.find().sort({ name: 1 });
@@ -37,12 +37,13 @@ router.get('/', ipAddress, async (req, res) => {
 });
 
 //GET A FEED
-router.get('/:slug', ipAddress, async (req, res) => {
+router.get('/:slug', async (req, res) => {
   try {
     const post = await Post.findOne({ slug: req.params.slug });
     const comments = await Comment.find({ postSlug: req.params.slug }).sort({ createdAt: 1 });
     res.render('feedsView', {
       layout: 'layouts/main-layout',
+      ipAddress: req.ip,
       post: post,
       title: post.title,
       comments: comments, //array
