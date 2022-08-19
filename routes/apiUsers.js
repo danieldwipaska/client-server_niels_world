@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-// const verify = require('./verifyToken');
 const verify = require('./verifyToken');
 const verify2 = require('./verifyTokenForNav');
 

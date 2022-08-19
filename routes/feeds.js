@@ -3,7 +3,6 @@ const router = express.Router();
 const Post = require('../models/Post');
 const Category = require('../models/Category');
 const Comment = require('../models/Comment');
-// const ipAddress = require('./requestIp');
 
 //GET ALL FEEDS BY CATEGORY
 router.get('/', async (req, res) => {

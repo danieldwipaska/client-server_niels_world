@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../models/Post');
-// const ipAddress = require('./requestIp');
 
 router.get('/', async (req, res) => {
   try {

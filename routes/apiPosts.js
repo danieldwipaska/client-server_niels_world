@@ -11,8 +11,6 @@ const verify = require('./verifyToken');
 
 //CREATE A POST
 router.post('/', verify, async (req, res) => {
-  // console.log(req.body);
-  // res.redirect('/dashboard/feeds');
   try {
     const user = await User.findById(req.body.userId);
     if (user.isAdmin) {
@@ -43,7 +41,6 @@ router.post('/:id', verify, async (req, res) => {
       req.body.slug = slugify(req.body.title, { lower: true, strict: true });
       req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
       const updatePost = new Post(req.body);
-      // res.json(updatePost);
       try {
         saveCover(updatePost, req.body.files);
         const updatedPost = await Post.findByIdAndUpdate(

@@ -4,7 +4,6 @@ const router = express.Router();
 const Post = require('../models/Post');
 const Category = require('../models/Category');
 const verify = require('./verifyToken');
-// const IpData = require('../models/IpCount');
 
 // GET USER POSTS
 router.get('/feeds', verify, async (req, res) => {
