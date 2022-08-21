@@ -1,9 +1,9 @@
 <div class="container my-5 py-5">
-  <p><%= user._id %></p>
+  <p><%= userId %></p>
   <form id="form" action="/api/posts" method="post">
     <div class="mb-3">
       <label for="userId" class="form-label">User ID</label>
-      <input type="text" class="form-control" name="userId" id="userId" value="<%= user._id %>" />
+      <input type="text" class="form-control" name="userId" id="userId" value="<%= userId %>" />
     </div>
     <div class="mb-3">
       <label for="title" class="form-label">Title</label>

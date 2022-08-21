@@ -31,13 +31,13 @@ router.get('/feeds', verify, async (req, res) => {
 router.get('/feeds/add', verify, async (req, res) => {
   try {
     const user = await User.findOne({ username: req.validUser.name });
-    const { password, ...rest } = user;
+    const { _id } = user;
     const cats = await Category.find().sort({ name: 1 });
     res.render('dashboardFeedsAdd', {
       layout: 'layouts/main-layout',
       cat: cats,
       title: 'Add a post',
-      user: rest,
+      userId: _id,
     });
   } catch (err) {
     res.status(500).json(err);
