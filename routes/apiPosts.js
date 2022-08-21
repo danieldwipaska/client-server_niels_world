@@ -18,8 +18,7 @@ router.post('/', verify, async (req, res) => {
       // newPost.img = req.file.filename;
       saveCover(newPost, req.body.files);
       try {
-        const savedPost = await newPost.save();
-        // res.json(savedPost);
+        await newPost.save();
         res.redirect('/dashboard/feeds');
       } catch (err) {
         res.status(500).json(err);
@@ -120,7 +119,7 @@ router.get('/:id', async (req, res) => {
 
 function saveCover(image, imageEncoded) {
   let imgEnc = imageEncoded;
-  if (imgEnc == null) return;
+  if (imgEnc === null || imgEnc === undefined) return;
   if (typeof imgEnc === 'string') {
     imgEnc = [imageEncoded];
   }
