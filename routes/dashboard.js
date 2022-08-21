@@ -30,14 +30,14 @@ router.get('/feeds', verify, async (req, res) => {
 // ADD FORM DATA PAGE
 router.get('/feeds/add', verify, async (req, res) => {
   try {
-    const findUser = await User.findOne({ username: req.validUser.name });
-    const { password, ...user } = findUser;
+    const user = await User.findOne({ username: req.validUser.name });
+    const { password, ...rest } = user;
     const cats = await Category.find().sort({ name: 1 });
     res.render('dashboardFeedsAdd', {
       layout: 'layouts/main-layout',
       cat: cats,
       title: 'Add a post',
-      user: user,
+      user: rest,
     });
   } catch (err) {
     res.status(500).json(err);
