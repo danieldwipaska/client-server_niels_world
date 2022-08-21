@@ -30,7 +30,8 @@ router.get('/feeds', verify, async (req, res) => {
 // ADD FORM DATA PAGE
 router.get('/feeds/add', verify, async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.validUser.name });
+    const findUser = await User.findOne({ username: req.validUser.name });
+    const { password, ...user } = findUser;
     const cats = await Category.find().sort({ name: 1 });
     res.render('dashboardFeedsAdd', {
       layout: 'layouts/main-layout',
