@@ -3,6 +3,7 @@ const { redirect } = require('express/lib/response');
 const router = express.Router();
 const Post = require('../models/Post');
 const Category = require('../models/Category');
+const User = require('../models/User');
 const verify = require('./verifyToken');
 
 // GET USER POSTS
@@ -29,11 +30,13 @@ router.get('/feeds', verify, async (req, res) => {
 // ADD FORM DATA PAGE
 router.get('/feeds/add', verify, async (req, res) => {
   try {
+    const user = await User.findOne({ username: req.validUser.name });
     const cats = await Category.find().sort({ name: 1 });
     res.render('dashboardFeedsAdd', {
       layout: 'layouts/main-layout',
       cat: cats,
       title: 'Add a post',
+      user: user,
     });
   } catch (err) {
     res.status(500).json(err);
