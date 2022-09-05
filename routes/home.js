@@ -27,4 +27,11 @@ router.get('/about', (req, res) => {
   });
 });
 
+router.get('/giganticz', (req, res) => {
+  res.render('giganticz_index', {
+    layout: 'layouts/giganticz-layout',
+    title: 'Home',
+  });
+});
+
 module.exports = router;
