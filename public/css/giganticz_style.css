@@ -1,0 +1,64 @@
+.product-box {
+  transition: all 0.2s ease-in-out;
+}
+
+.product-box:hover {
+  transform: scale(1.05);
+}
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 25px;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30%;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+/* Instagram */
+.fa-instagram {
+  background: rgb(199, 76, 76);
+  color: white;
+}
+
+/* Youtube */
+.fa-youtube {
+  background: red;
+  color: white;
+}
+
+/* Google */
+.fa-google {
+  background: rgb(212, 95, 16);
+  color: white;
+}
+/* LinkedIn */
+.fa-linkedin {
+  background: rgb(43, 99, 182);
+  color: white;
+}
+/* Skype */
+.fa-skype {
+  background: rgb(69, 169, 252);
+  color: white;
+}
