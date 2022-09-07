@@ -55,4 +55,9 @@ a {
 
 .whatido-box {
   background-color: rgb(35, 35, 39);
+  transition: all 0.2s ease-in-out;
+}
+
+.whatido-box:hover {
+  transform: scale(1.05);
 }
