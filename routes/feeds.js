@@ -17,19 +17,31 @@ router.get('/', async (req, res) => {
           $in: [category[0].name],
         },
       });
+      posts.forEach((post) => {
+        const dateCreated = new Date(post.createdAt);
+        post.dateCreated = dateCreated;
+      });
+      res.render('feeds', {
+        layout: 'layouts/main-layout',
+        post: posts,
+        cat: cats,
+        title: 'Feeds',
+        category: category[0].name,
+      });
     } else {
       posts = await Post.find().sort({ createdAt: -1 });
+      posts.forEach((post) => {
+        const dateCreated = new Date(post.createdAt);
+        post.dateCreated = dateCreated;
+      });
+      res.render('feeds', {
+        layout: 'layouts/main-layout',
+        post: posts,
+        cat: cats,
+        title: 'Feeds',
+        category: 'Semua Kategori',
+      });
     }
-    posts.forEach((post) => {
-      const dateCreated = new Date(post.createdAt);
-      post.dateCreated = dateCreated;
-    });
-    res.render('feeds', {
-      layout: 'layouts/main-layout',
-      post: posts,
-      cat: cats,
-      title: 'Feeds',
-    });
   } catch (err) {
     res.status(500).json(err);
   }

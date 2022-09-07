@@ -1,54 +1,60 @@
 <section class="py-5">
-  <div class="container-lg my-5">
+  <div class="container-fluid my-5">
     <div class="row">
-      <div class="col-lg-2">
+      <div class="col-lg-2 ms-3">
         <div class="row">
-          <div class="col-lg p-2 mx-2 box-part">
-            <p class="text-center fs-2">Categories</p>
+          <div class="col-lg p-2 mx-2">
+            <h4 class="text-info">Categories</h4>
           </div>
         </div>
         <div class="row mt-2 mx-1">
-          <div class="col-lg p-3 mb-4 box-part">
-            <div class="list-group category-here">
-              <a href="/feeds" class="list-group-item list-group-item-action border-0 bg-transparent text-light">Semua Kategori</a>
-              <% cat.forEach((e) => { %>
-              <a href="/feeds?category=<%= e.slug %>" class="list-group-item list-group-item-action bg-transparent border-0 text-light"><%= e.name %></a>
-              <% }); %>
+          <div class="col-lg px-0 mb-4">
+            <a href="/feeds" class="text-light"><p>Semua Kategori</p></a>
+            <% cat.forEach((e) => { %>
+            <a href="/feeds?category=<%= e.slug %>" class="text-light"><p><%= e.name %></p></a>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg mx-2">
+        <div class="row">
+          <div class="col-lg post-here">
+            <div class="row">
+              <div class="col-lg pt-2 ps-2 pe-2 mx-4">
+                <h4>
+                  <span class="text-light">Recent Articles: <% if (category) { %>
+                  <span class="text-info"><%= category %> </span>
+                  <% } %>
+                </h4>
+              </div>
+            </div>
+            <div class="row my-2 mx-auto">
+              <% post.forEach( (e) => { %>
+              <div class="col-lg-3 g-0 p-2 mx-3 my-2 post-box">
+                <a href="/feeds/<%= e.slug %>" class="text-light"
+                  ><div class="card mb-2 mx-auto post-cards border-0 bg-transparent">
+                    <div class="row">
+                      <div class="col-lg p-auto m-auto">
+                        <img src="<%= e.imgPath[0] %>" class="post-image rounded-start" alt="..." />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg">
+                        <div class="card-body">
+                          <h5 class="card-title"><small><%= e.title %></small></h5>
+                          <p class="card-text timestamps mb-0"><small class="text-muted"><%= e.dateCreated.toLocaleDateString() %></small></p>
+                          <p class="card-text mb-0">Kategori: <%= e.categories %></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div></a
+                >
+              </div>
+              <% }) %>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-9 mx-2">
-        <div class="row mb-3">
-          <div class="col-lg p-2 box-part">
-            <p class="text-center fs-2">Recent Feeds</p>
-          </div>
-        </div>
-        <div class="post-here">
-          <% post.forEach( (e) => { %>
-
-          <a href="/feeds/<%= e.slug %>"
-            ><div class="card mb-2 mx-auto post-cards border-0 bg-transparent">
-              <div class="row g-0 p-2 post-box">
-                <div class="col-lg-4 p-auto m-auto">
-                  <img src="<%= e.imgPath[0] %>" class="post-image rounded-start" alt="..." />
-                </div>
-                <div class="col-lg-8">
-                  <div class="card-body">
-                    <h5 class="card-title"><%= e.title %></h5>
-                    <p class="card-text mb-0"><%= e.desc %></p>
-                    <p class="card-text timestamps mb-0"><small class="text-muted"><%= e.dateCreated.toLocaleDateString() %></small></p>
-                    <p class="card-text mb-0">Kategori: <%= e.categories %></p>
-                  </div>
-                </div>
-              </div>
-            </div></a
-          >
-
-          <% }) %>
-        </div>
-      </div>
-      <div class="col-lg-1"></div>
     </div>
   </div>
 </section>
