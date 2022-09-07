@@ -35,7 +35,7 @@
         const response = await data.json();
         const loginPath = document.querySelector('.login-path');
         if (response.username === '') {
-          loginPath.innerHTML = `<a href="/api/auth/login"><button type="button" class="btn btn-primary navi-button">Login</button></a>`;
+          loginPath.innerHTML = `<a href="/api/auth/login"><button type="button" class="btn btn-info navi-button">Login</button></a>`;
         } else {
           loginPath.innerHTML = `<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hi, ${response.username}</a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
