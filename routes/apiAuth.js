@@ -75,6 +75,7 @@ router.get('/login', (req, res) => {
   res.render('login', {
     layout: 'layouts/main-layout',
     title: 'Login',
+    msg: '',
   });
 });
 
