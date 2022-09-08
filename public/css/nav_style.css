@@ -58,6 +58,16 @@ a {
   border-radius: 30px;
 }
 
+.login-box {
+  /* From https://css.glass */
+  background: rgba(0, 0, 0, 0.68);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
 .whatido-box {
   background-color: rgb(35, 35, 39);
   transition: all 0.2s ease-in-out;

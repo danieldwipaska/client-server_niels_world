@@ -1,20 +1,31 @@
 <div class="container my-5 py-5 mx-auto">
-  <form id="form" action="/api/auth/login" method="post">
-    <% if (msg) { %>
-    <div class="alert alert-dismissible alert-danger mb-3">
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>Oh no!</strong><%= msg %>
+  <div class="row">
+    <div class="col-md-6 p-5 mx-auto login-box">
+      <div class="row mb-4">
+        <div class="col-md"><img src="/public/img/logo_niels_world22.png" class="my-auto" alt="niels world icon" style="width: 30px" /> <strong>Niel's World</strong></div>
+      </div>
+      <div class="row">
+        <div class="col-md">
+          <form id="form" action="/api/auth/login" method="post">
+            <% if (msg) { %>
+            <div class="alert alert-dismissible alert-danger fade show mb-3">
+              <button type="button" class="btn-close" data-mdb-toggle="animation" data-mdb-animation="slide-right" data-mdb-animation-start="onLoad" data-bs-dismiss="alert"></button>
+              <strong>Oh no!</strong> <%= msg %>
+            </div>
+            <% } %>
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" name="username" id="username" placeholder="enter your username" />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="password" placeholder="enter your password" />
+            </div>
+            <button type="submit" class="btn btn-primary my-2">Login</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <% } %>
-    <div class="mb-3">
-      <label for="username" class="form-label">Username</label>
-      <input type="text" class="form-control" name="username" id="username" placeholder="enter your username" />
-    </div>
-    <div class="mb-3">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" name="password" id="password" placeholder="enter your password" />
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-  </form>
+  </div>
 </div>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
