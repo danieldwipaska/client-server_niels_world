@@ -26,11 +26,23 @@ router.post('/login', async (req, res) => {
   try {
     // Find the data by username
     const validUser = await User.findOne({ username: req.body.username });
-    if (!validUser) return res.status(400).json('wrong username or password');
+    if (!validUser) {
+      return res.render('login', {
+        layout: 'layouts/main-layout',
+        title: 'Login',
+        msg: 'wrong username or password',
+      });
+    }
 
     // Check whether password is correct or not
     const validPass = await bcrypt.compare(req.body.password, validUser.password);
-    if (!validPass) return res.status(400).json('wrong username or password');
+    if (!validPass) {
+      return res.render('login', {
+        layout: 'layouts/main-layout',
+        title: 'Login',
+        msg: 'wrong username or password',
+      });
+    }
 
     // Create and assign a token
     const token = jwt.sign({ name: validUser.username }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d' });

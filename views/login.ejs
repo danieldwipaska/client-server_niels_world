@@ -1,5 +1,11 @@
 <div class="container my-5 py-5 mx-auto">
   <form id="form" action="/api/auth/login" method="post">
+    <% if (msg) { %>
+    <div class="alert alert-dismissible alert-danger mb-3">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <strong>Oh no!</strong><%= msg %>
+    </div>
+    <% } %>
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
       <input type="text" class="form-control" name="username" id="username" placeholder="enter your username" />
@@ -8,6 +14,7 @@
       <label for="password" class="form-label">Password</label>
       <input type="password" class="form-control" name="password" id="password" placeholder="enter your password" />
     </div>
-    <button type="submit" class="btn btn-success">Login</button>
+    <button type="submit" class="btn btn-primary">Login</button>
   </form>
 </div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
