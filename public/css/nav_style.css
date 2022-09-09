@@ -49,6 +49,10 @@ a {
   transition: all 0.2s ease-in-out;
 }
 
+.image-fluid {
+  max-width: 100%;
+}
+
 .post-box:hover {
   transform: scale(1.05);
 }
