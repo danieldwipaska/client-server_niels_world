@@ -37,7 +37,6 @@ const PostSchema = new mongoose.Schema(
     markdown: {
       type: String,
       required: true,
-      max: 3000,
     },
     slug: {
       type: String,

@@ -17,6 +17,7 @@ router.post('/', verify, async (req, res) => {
       const newPost = new Post(req.body); // tidak ada newPost.files
       // newPost.img = req.file.filename;
       saveCover(newPost, req.body.files);
+
       try {
         await newPost.save();
         res.redirect('/dashboard/feeds');
@@ -40,25 +41,45 @@ router.post('/:id', verify, async (req, res) => {
       req.body.slug = slugify(req.body.title, { lower: true, strict: true });
       req.body.sanitizeHtml = dompurify.sanitize(marked.parse(req.body.markdown));
       const updatePost = new Post(req.body);
-      try {
-        saveCover(updatePost, req.body.files);
-        const updatedPost = await Post.findByIdAndUpdate(
-          req.params.id,
-          {
-            title: updatePost.title,
-            desc: updatePost.desc,
-            markdown: updatePost.markdown,
-            categories: updatePost.categories,
-            slug: updatePost.slug,
-            sanitizeHtml: updatePost.sanitizeHtml,
-            img: updatePost.img,
-            imgType: updatePost.imgType,
-          },
-          { new: true }
-        );
-        res.redirect('/dashboard/feeds');
-      } catch (err) {
-        res.status(500).json(err);
+      saveCover(updatePost, req.body.files);
+      if (updatePost.img.length === 0) {
+        try {
+          const updatedPost = await Post.findByIdAndUpdate(
+            req.params.id,
+            {
+              title: updatePost.title,
+              desc: updatePost.desc,
+              markdown: updatePost.markdown,
+              categories: updatePost.categories,
+              slug: updatePost.slug,
+              sanitizeHtml: updatePost.sanitizeHtml,
+            },
+            { new: true }
+          );
+          res.redirect('/dashboard/feeds');
+        } catch (err) {
+          res.status(500).json(err);
+        }
+      } else {
+        try {
+          const updatedPost = await Post.findByIdAndUpdate(
+            req.params.id,
+            {
+              title: updatePost.title,
+              desc: updatePost.desc,
+              markdown: updatePost.markdown,
+              categories: updatePost.categories,
+              slug: updatePost.slug,
+              sanitizeHtml: updatePost.sanitizeHtml,
+              img: updatePost.img,
+              imgType: updatePost.imgType,
+            },
+            { new: true }
+          );
+          res.redirect('/dashboard/feeds');
+        } catch (err) {
+          res.status(500).json(err);
+        }
       }
     } else {
       res.status(403).json('you can only edit your own post');
@@ -119,7 +140,7 @@ router.get('/:id', async (req, res) => {
 
 function saveCover(image, imageEncoded) {
   let imgEnc = imageEncoded;
-  if (imgEnc === null || imgEnc === undefined) return;
+  if (imgEnc === null || imgEnc === undefined || imgEnc === '') return;
   if (typeof imgEnc === 'string') {
     imgEnc = [imageEncoded];
   }
