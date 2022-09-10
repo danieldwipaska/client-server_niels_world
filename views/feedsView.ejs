@@ -1,7 +1,7 @@
 <div class="container-md mt-5 py-5 px-4">
   <div class="col-md-8 mx-auto p-5 box-part post-block">
     <h1><%= post.title %></h1>
-    <p class="text-muted date-here"></p>
+    <!-- <p class="text-muted date-here"></p> -->
     <p class="text-muted"><small> <%= post.desc %></small></p>
     <div class="mb-2">
       <a href="https://www.facebook.com/sharer/sharer.php?u=https://danieldwipaska.up.railway.app/feeds/<%= post.slug %>" class="fa fa-facebook mini-button mb-1" target="_blank"></a>
@@ -66,9 +66,9 @@
   head.appendChild(link);
 </script>
 <script>
-  const date = new Date('<%= post.createdAt %>');
-  const dateHere = document.querySelector('.date-here');
-  dateHere.innerHTML = date.toLocaleDateString();
+  // const date = new Date('post.createdAt');
+  // const dateHere = document.querySelector('.date-here');
+  // dateHere.innerHTML = date.toLocaleDateString();
   
   const postBlock = document.querySelector('.post-block');
   const img = postBlock.querySelectorAll('img');
