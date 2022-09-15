@@ -13,6 +13,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
 const cookieParser = require('cookie-parser');
+// const cors = require('cors');
 
 // import router
 const authRoute = require('./routes/apiAuth');
@@ -30,6 +31,7 @@ app.use(cookieParser());
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(`${__dirname}/public`)); // make files able to access
 app.use('/public', express.static(path.join(__dirname, 'public')));
+// app.use(cors());
 
 // Mongodb Connect
 mongoose

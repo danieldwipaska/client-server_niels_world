@@ -1,35 +1,50 @@
-<div class="container my-5 py-5">
-  <form id="form" action="/api/posts" method="post">
-    <div class="mb-3">
-      <label for="userId" class="form-label">User ID</label>
-      <input type="text" class="form-control" name="userId" id="userId" value="<%= userId %>" />
-    </div>
-    <div class="mb-3">
-      <label for="title" class="form-label">Title</label>
-      <input type="text" class="form-control" name="title" id="title" placeholder="Judul maksimal 100 karakter" />
-    </div>
-    <div class="mb-3">
-      <label for="desc" class="form-label">Description</label>
-      <textarea class="form-control" name="desc" placeholder="Deskripsi maksimal 500 karakter" id="desc"></textarea>
-    </div>
-    <div class="mb-3">
-      <label for="markdown" class="form-label">Content</label>
-      <textarea class="form-control" name="markdown" placeholder="Konten maksimal 3000 karakter" id="markdown" style="height: 300px"></textarea>
-    </div>
-    <div class="mb-3">
-      <label for="files" class="form-label">Upload Image <small class="text-muted">375x200px</small></label>
-      <input type="file" class="form-control filepond" id="files" name="files" multiple />
-    </div>
-    <p>Categories</p>
-    <div class="category-here">
-      <% cat.forEach((e) => { %>
-      <div class="mb-3 form-check">
-        <input class="form-check-input" type="checkbox" name="categories" value="<%= e.name %>" id="<%= e.name %>" />
-        <label class="form-check-label" for="<%= e.name %>"><%= e.name %></label>
-      </div>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-8 mx-auto p-3 bg-black">
+      <form id="form" action="/api/posts" method="post">
+        <div class="mb-3">
+          <label for="userId" class="form-label">User ID</label>
+          <input type="text" class="form-control" name="userId" id="userId" value="<%= userId %>" />
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" name="title" id="title" placeholder="Judul maksimal 100 karakter" />
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label">Description</label>
+          <textarea class="form-control" name="desc" placeholder="Deskripsi maksimal 500 karakter" id="desc"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="markdown" class="form-label">Content</label>
+          <textarea class="form-control" name="markdown" placeholder="Konten maksimal 3000 karakter" id="markdown" style="height: 300px"></textarea>
+        </div>
 
-      <% }); %>
+        <div class="mb-3">
+          <label for="files" class="form-label">Upload Image <small class="text-muted">375x200px</small></label>
+          <input type="file" class="form-control filepond" id="files" name="files" multiple />
+        </div>
+        <p>Categories</p>
+        <div class="category-here">
+          <% cat.forEach((e) => { %>
+          <div class="mb-3 form-check">
+            <input class="form-check-input" type="checkbox" name="categories" value="<%= e.name %>" id="<%= e.name %>" />
+            <label class="form-check-label" for="<%= e.name %>"><%= e.name %></label>
+          </div>
+
+          <% }); %>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  </div>
 </div>
+<!-- <div class="mb-3">
+  <div id="editor">
+    <p>Hello World!</p>
+    <p>Some initial <strong>bold</strong> text</p>
+    <p><br /></p>
+  </div>
+</div>
+<div class="mb-3">
+  <button class="btn btn-info quill-button">Quill submit</button>
+</div> -->
