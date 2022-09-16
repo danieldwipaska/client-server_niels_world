@@ -4,8 +4,8 @@
     <% post.forEach( (e) => { %>
     <div class="card my-3 mx-auto post-cards border-0 bg-transparent">
       <div class="row g-0 p-2 box-part">
-        <div class="col-md-4 p-auto m-auto">
-          <a href="/feeds/<%= e.slug %>"><img src="<%= e.imgPath[0] %>" class="img-fluid rounded-start" id="post-image" alt="..." /></a>
+        <div class="col-md-4 p-auto m-auto post-here">
+          <a href="/feeds/<%= e.slug %>"><img src="<%= e.imgPath[0] %>" class="image-fluid post-image" alt="..." /></a>
         </div>
         <div class="col-md-8">
           <div class="card-body">
