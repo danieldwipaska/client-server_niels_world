@@ -54,6 +54,10 @@ a {
   transform: scale(1.05);
 }
 
+.image-fluid {
+  max-width: 100%;
+}
+
 .slide-desc {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 30px;
